@@ -2,17 +2,19 @@ PushAppsSDK
 ===========
 
 Welcome to PushApps SDK's and Tutorials!
+Below you can find the integration instructions for Androido and iOS.
+For your convenience, you can find our demo projects, in which the SDK is already integrated.
+
+If you any questions, comments, request or anything else on your mind - please contact [support@pushapps.mobi](mailto:support@pushapps.mobi)
 
 Android:
 ========
-
-In order to integrate the PushApps SDK for Android you need to:
 
 1. Add the pushapps.jar file to your project libs folder.
 2. In your application.java file, inside the method onCreate() write the following line:
     
     ```java
-    PushManager.init(getApplicationContext(),appId,appToken);
+    PushManager.init(getApplicationContext(), APP_ID, APP_TOKEN);
     ``` 
 
 3. Add GCMIntentService.class to your root package folder. For example if your package name is com.example.push then the class should be in the src/com/example/push/ folder.
@@ -51,9 +53,11 @@ In order to integrate the PushApps SDK for Android you need to:
         android:configChanges="orientation|keyboardHidden" />
 
     ``` 
-6. 
-    
+
 
 iOS:
 ====
+
+1. Add PushApps.framework to your xcode project. Please make sure that the "Copy items into destination group's folder (if needed)" is NOT checked.
+
 
