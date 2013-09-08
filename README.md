@@ -59,5 +59,27 @@ iOS:
 ====
 
 1. Add PushApps.framework to your xcode project. Please make sure that the "Copy items into destination group's folder (if needed)" is NOT checked.
+2. In your application didFinishLaunchingWithOptions method inside the AppDelegate, add the following line:
+
+    ```objective-c
+    [[PushTechManager sharedInstance] startPushTechWithAppToken:APP_TOKEN andAppId:APP_ID
+        withLaunchOptions:launchOptions];
+    ``` 
+    
+3. In your AppDelegate, at the end of the file, at the following line:
+    
+    ```objective-c
+    #pragma push notification
+
+    - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+        NSString *userToken = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+        userToken = [userToken stringByReplacingOccurrencesOfString:@" " withString:@""];
+        [[PushTechManager sharedInstance] updatePushToken:deviceToken];
+    }
+    
+    - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+        [[PushTechManager sharedInstance] handlePushMessageOnForeground:userInfo];
+    }
+    ```
 
 
