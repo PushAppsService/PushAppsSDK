@@ -59,7 +59,7 @@ iOS:
 ====
 
 1. Add PushApps.framework to your xcode project. Please make sure that the "Copy items into destination group's folder (if needed)" is NOT checked.
-import <PushTech/PushTech.h> into your AppDelegate.m file. Also, please make sure you included AdSupport.framework in your project.
+import PushTech/PushTech.h into your AppDelegate.m file. Also, please make sure you included AdSupport.framework in your project.
 
 2. In your application didFinishLaunchingWithOptions method inside the AppDelegate, add the following line:
 
