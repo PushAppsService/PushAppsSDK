@@ -14,7 +14,7 @@ Android:
 2. In your application.java file, inside the method onCreate() write the following line:
     
     ```java
-    PushManager.init(getApplicationContext(), APP_ID, APP_TOKEN);
+    PushManager.init(getApplicationContext(), DEVELOPER_ID, APP_TOKEN);
     ``` 
 
 3. Add GCMIntentService.java to your root package folder. For example if your package name is com.example.push then the class should be in the src/com/example/push/ folder.
@@ -37,7 +37,7 @@ Android:
 
     ```xml
     <receiver
-        android:name="com.groboot.grobootpushlibrary.GCMBroadcastReceiver"
+        android:name="com.groboot.pushapps.GCMBroadcastReceiver"
         android:permission="com.google.android.c2dm.permission.SEND" >
         <intent-filter>
             <action android:name="com.google.android.c2dm.intent.RECEIVE" />
@@ -49,7 +49,7 @@ Android:
     <service android:name=".GCMIntentService" />
     
     <activity
-        android:name="com.groboot.grobootpushlibrary.GrobootPushActivity"
+        android:name="com.groboot.pushapps.PushActivity"
         android:configChanges="orientation|keyboardHidden" />
 
     ``` 
