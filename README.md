@@ -67,7 +67,7 @@ iOS:
 4. In your application didFinishLaunchingWithOptions method inside the AppDelegate, add the following line:
 
     ```objective-c
-    [[PushAppsManager sharedInstance] startPushAppsWithAppToken:@"1a3267ab-aa11-4bb2-8dda-034b3a6566ee" withLaunchOptions:launchOptions];
+    [[PushAppsManager sharedInstance] startPushAppsWithAppToken:@"YOUR_APP_TOKEN" withLaunchOptions:launchOptions];
     [[PushAppsManager sharedInstance] setDelegate:self]; // optional
     ``` 
     
