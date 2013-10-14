@@ -59,16 +59,19 @@ iOS:
 ====
 
 1. Add PushApps.framework to your xcode project. Please make sure that the "Copy items into destination group's folder (if needed)" is NOT checked.
-import PushTech/PushTech.h into your AppDelegate.m file. Also, please make sure you included AdSupport.framework in your project.
 
-2. In your application didFinishLaunchingWithOptions method inside the AppDelegate, add the following line:
+2. Make sure you include AdSupport.framework in your project.
+
+3. Place "#import <PushApps/PushApps.h>" in your AppDelegate.h file. If you need, you can also declare on delegation <PushAppsDelegate>, in order to get notified on push and more events.
+
+4. In your application didFinishLaunchingWithOptions method inside the AppDelegate, add the following line:
 
     ```objective-c
-    [[PushTechManager sharedInstance] startPushTechWithAppToken:APP_TOKEN andAppId:APP_ID
-        withLaunchOptions:launchOptions];
+    [[PushAppsManager sharedInstance] startPushAppsWithAppToken:@"1a3267ab-aa11-4bb2-8dda-034b3a6566ee" withLaunchOptions:launchOptions];
+    [[PushAppsManager sharedInstance] setDelegate:self]; // optional
     ``` 
     
-3. In your AppDelegate, at the end of the file, at the following line:
+5. In your AppDelegate, at the end of the file, at the following line:
     
     ```objective-c
     #pragma push notification
@@ -76,12 +79,10 @@ import PushTech/PushTech.h into your AppDelegate.m file. Also, please make sure 
     - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
         NSString *userToken = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
         userToken = [userToken stringByReplacingOccurrencesOfString:@" " withString:@""];
-        [[PushTechManager sharedInstance] updatePushToken:deviceToken];
+        [[PushAppsManager sharedInstance] updatePushToken:deviceToken];
     }
     
     - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-        [[PushTechManager sharedInstance] handlePushMessageOnForeground:userInfo];
+        [[PushAppsManager sharedInstance] handlePushMessageOnForeground:userInfo];
     }
     ```
-
-
