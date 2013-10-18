@@ -5,7 +5,7 @@ Welcome to PushApps SDK's and Tutorials!
 Below you can find the integration instructions for Androido and iOS.
 For your convenience, you can find our demo projects, in which the SDK is already integrated.
 
-If you any questions, comments, request or anything else on your mind - please contact [support@pushapps.mobi](mailto:support@pushapps.mobi)
+If you have any questions, comments, requests or anything else on your mind - please contact [support@pushapps.mobi](mailto:support@pushapps.mobi)
 
 Android:
 ========
