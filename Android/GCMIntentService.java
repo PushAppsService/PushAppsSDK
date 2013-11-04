@@ -1,4 +1,20 @@
-package com.groboot.zimmerportal;
+package com.example.pushappsdemo;
+
+/*
+ * Copyright 2012 Google Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,62 +22,60 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.groboot.pushapps.GCMBaseIntentService;
+import com.groboot.pushapps.Logger;
 import com.groboot.pushapps.PushManager;
-import com.groboot.zimmerportal.activities.SplashActivity;
 
+/**
+ * IntentService responsible for handling GCM messages.
+ */
 public class GCMIntentService extends GCMBaseIntentService {
-	  
-    private final static int NOTIFICATION_ID = 9999;
-  
-    public static final String TAG = "GCMIntentService";
-  
-    public GCMIntentService() {
-        super("699397886418");
-    }
-  
-    @Override
-    protected void onRegistered(Context context, String registrationId) {
-    	Log.d(TAG, "Device onRegistered " + registrationId);
-    }
-  
-    @Override
-    protected void onUnregistered(Context context, String registrationId) {
-        Log.d(TAG, "Device onUnregistered " + registrationId);
-    }
-  
-    @Override
-    protected void onMessage(Context context, Intent intent) {
-        Bundle data = intent.getExtras();
-        if (data != null) {
-            /*
-             * String alert = data.getString(Configuration.GCMValues.ALERT); String
-             * title = context.getString(R.string.app_name); if
-             * (data.containsKey(Configuration.GCMValues.TITLE)) { title =
-             * data.getString(Configuration.GCMValues.TITLE); }
-             * createNotification(alert,title, context);
-             */
-            Intent notificationIntent = new Intent();
-            notificationIntent.setClass(context, SplashActivity.class);
-            notificationIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            PushManager.buildNotification(intent.getExtras(), context,
-                    NOTIFICATION_ID, R.drawable.ic_launcher, notificationIntent);
-        }
-  
-    }
-  
-  
-    @Override
-    protected void onDeletedMessages(Context context, int total) {
-    }
-  
-    @Override
-    public void onError(Context context, String errorId) {
-        //CustomLogger.log(TAG, "Device onError " + errorId);
-    }
-  
-    @Override
-    protected boolean onRecoverableError(Context context, String errorId) {
-        return super.onRecoverableError(context, errorId);
-    }
-}
 
+	private final static int NOTIFICATION_ID = 9999;
+
+	public static final String TAG = "GCMIntentService";
+	public static final String SENDER_ID = "47811378595";
+
+	public GCMIntentService() {
+		super(SENDER_ID);
+	}
+
+	@Override
+	protected void onRegistered(Context context, String registrationId) {
+		Log.d(TAG, "Device onRegistered " + registrationId);
+	}
+
+	@Override
+	protected void onUnregistered(Context context, String registrationId) {
+		Log.d(TAG, "Device onUnregistered " + registrationId);
+	}
+
+	@Override
+	protected void onMessage(Context context, Intent intent) {
+		Bundle data = intent.getExtras();
+		for (String key : data.keySet()) {
+			Logger.log("key: " +key+" value: "+ data.get(key).toString());
+		}
+		if (data != null) {
+			Intent notificationIntent = new Intent();
+			notificationIntent.setClass(context, MainActivity.class);
+			notificationIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			PushManager.buildNotification(intent.getExtras(), context,
+					NOTIFICATION_ID, R.drawable.notification_icon,
+					notificationIntent);
+		}
+
+	}
+
+	@Override
+	protected void onDeletedMessages(Context context, int total) {
+	}
+
+	@Override
+	public void onError(Context context, String errorId) {
+	}
+
+	@Override
+	protected boolean onRecoverableError(Context context, String errorId) {
+		return super.onRecoverableError(context, errorId);
+	}
+}

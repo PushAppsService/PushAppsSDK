@@ -16,65 +16,66 @@ package com.example.pushappsdemo;
  * limitations under the License.
  */
 
-  
-  
-  
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
 import com.groboot.pushapps.GCMBaseIntentService;
+import com.groboot.pushapps.Logger;
 import com.groboot.pushapps.PushManager;
+
 /**
  * IntentService responsible for handling GCM messages.
  */
 public class GCMIntentService extends GCMBaseIntentService {
-	  
-    private final static int NOTIFICATION_ID = 9999;
-  
-    public static final String TAG = "GCMIntentService";
-    public static final String SENDER_ID = "yoursenderid";
-  
-    public GCMIntentService() {
-        super(SENDER_ID);
-    }
-  
-    @Override
-    protected void onRegistered(Context context, String registrationId) {
-    	Log.d(TAG, "Device onRegistered " + registrationId);
-    }
-  
-    @Override
-    protected void onUnregistered(Context context, String registrationId) {
-        Log.d(TAG, "Device onUnregistered " + registrationId);
-    }
-  
-    @Override
-    protected void onMessage(Context context, Intent intent) {
-        Bundle data = intent.getExtras();
-        if (data != null) {
-            Intent notificationIntent = new Intent();
-            notificationIntent.setClass(context, MainActivity.class);
-            notificationIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            PushManager.buildNotification(intent.getExtras(), context,
-                    NOTIFICATION_ID, R.drawable.ic_launcher, notificationIntent);
-        }
-  
-    }
-  
-  
-    @Override
-    protected void onDeletedMessages(Context context, int total) {
-    }
-  
-    @Override
-    public void onError(Context context, String errorId) {
-    }
-  
-    @Override
-    protected boolean onRecoverableError(Context context, String errorId) {
-        return super.onRecoverableError(context, errorId);
-    }
-}
 
+	private final static int NOTIFICATION_ID = 9999;
+
+	public static final String TAG = "GCMIntentService";
+	public static final String SENDER_ID = "47811378595";
+
+	public GCMIntentService() {
+		super(SENDER_ID);
+	}
+
+	@Override
+	protected void onRegistered(Context context, String registrationId) {
+		Log.d(TAG, "Device onRegistered " + registrationId);
+	}
+
+	@Override
+	protected void onUnregistered(Context context, String registrationId) {
+		Log.d(TAG, "Device onUnregistered " + registrationId);
+	}
+
+	@Override
+	protected void onMessage(Context context, Intent intent) {
+		Bundle data = intent.getExtras();
+		for (String key : data.keySet()) {
+			Logger.log("key: " +key+" value: "+ data.get(key).toString());
+		}
+		if (data != null) {
+			Intent notificationIntent = new Intent();
+			notificationIntent.setClass(context, MainActivity.class);
+			notificationIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			PushManager.buildNotification(intent.getExtras(), context,
+					NOTIFICATION_ID, R.drawable.notification_icon,
+					notificationIntent);
+		}
+
+	}
+
+	@Override
+	protected void onDeletedMessages(Context context, int total) {
+	}
+
+	@Override
+	public void onError(Context context, String errorId) {
+	}
+
+	@Override
+	protected boolean onRecoverableError(Context context, String errorId) {
+		return super.onRecoverableError(context, errorId);
+	}
+}

@@ -28,7 +28,8 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@android:style/Theme.Light.NoTitleBar"
+        android:name="DemoApplication" >
         <activity
             android:name="com.example.pushappsdemo.MainActivity"
             android:label="@string/app_name" >
