@@ -1,4 +1,4 @@
-package com.groboot.pushapps;
+package com.example.pushappsdemo;
 
 import android.content.Context;
 import android.content.Intent;
@@ -36,13 +36,6 @@ public class GCMIntentService extends GCMBaseIntentService {
     protected void onMessage(Context context, Intent intent) {
         Bundle data = intent.getExtras();
         if (data != null) {
-            /*
-             * String alert = data.getString(Configuration.GCMValues.ALERT); String
-             * title = context.getString(R.string.app_name); if
-             * (data.containsKey(Configuration.GCMValues.TITLE)) { title =
-             * data.getString(Configuration.GCMValues.TITLE); }
-             * createNotification(alert,title, context);
-             */
             Intent notificationIntent = new Intent();
             notificationIntent.setClass(context, SplashActivity.class);
             notificationIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
