@@ -1,4 +1,4 @@
-package com.groboot.zimmerportal;
+package com.groboot.pushapps;
 
 import android.content.Context;
 import android.content.Intent;
@@ -16,7 +16,10 @@ public class GCMIntentService extends GCMBaseIntentService {
     public static final String TAG = "GCMIntentService";
   
     public GCMIntentService() {
-        super("699397886418");
+    	/**
+    	 * NOTICE: Please replace to your own project ID, obtained from the Google API Console
+    	 */
+        super(PROJECT_ID);
     }
   
     @Override
