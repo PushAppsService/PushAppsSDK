@@ -35,7 +35,7 @@ Don't forget to import com.groboot.pushapps.PushManager;
     <uses-permission android:name="<your package>.permission.C2D_MESSAGE" />
     ``` 
 
-5. Inside the manifest XML file, In your <application> tag add the following receiver, service and activity:
+5. Inside the manifest XML file, In your application tag add the following receiver, service and activity:
 
     ```xml
     <receiver
