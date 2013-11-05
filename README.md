@@ -62,7 +62,7 @@ iOS:
 
 2. Make sure you include AdSupport.framework in your project.
 
-3. Place #import <PushApps/PushApps.h> in your AppDelegate.h file. If you need, you can also declare on delegation <PushAppsDelegate>, in order to get notified on push and more events.
+3. Place #import PushApps/PushApps.h in your AppDelegate.h file. If you need, you can also declare on delegation <PushAppsDelegate>, in order to get notified on push and more events.
 
 4. In your application didFinishLaunchingWithOptions method inside the AppDelegate, add the following line:
 
