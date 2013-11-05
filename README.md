@@ -17,6 +17,8 @@ Android:
     PushManager.init(getApplicationContext(), DEVELOPER_ID, APP_TOKEN);
     ``` 
 
+Don't forget to import com.groboot.pushapps.PushManager;
+
 3. Add GCMIntentService.java to your root package folder. For example if your package name is com.example.push then the class should be in the src/com/example/push/ folder.
 4. Add the following lines to the manifest XML file:
     
