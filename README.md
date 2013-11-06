@@ -16,8 +16,9 @@ Android:
     ```java
     PushManager.init(getApplicationContext(), DEVELOPER_ID, APP_TOKEN);
     ``` 
+    You can also place this call in your main Activity onCreate() or onResume() method.
 
-Don't forget to import com.groboot.pushapps.PushManager;
+   Don't forget to import com.groboot.pushapps.PushManager;
 
 3. Add GCMIntentService.java to your root package folder. For example if your package name is com.example.push then the class should be in the src/com/example/push/ folder.
 4. Add the following lines to the manifest XML file:
@@ -34,6 +35,7 @@ Don't forget to import com.groboot.pushapps.PushManager;
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
     <uses-permission android:name="<your package>.permission.C2D_MESSAGE" />
     ``` 
+
 
 5. Inside the manifest XML file, In your application tag add the following receiver, service and activity:
 
@@ -56,6 +58,13 @@ Don't forget to import com.groboot.pushapps.PushManager;
 
     ``` 
 
+Notice:
+-------
+* GCMIntentService.java must be placed in a package that is excatly your application package name,
+  otherwise your app won't be registered to the GCM service.
+* ```<service android:name=".GCMIntentService" />``` must look exactly like that - without referencing your package. 
+  You can validate it on Eclipse by holding the CTRL button and clicking on ```.GCMIntentService``` - this should
+  lead you the class itself.
 
 iOS:
 ====
