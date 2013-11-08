@@ -16,6 +16,9 @@ Android:
     ```java
     PushManager.init(getApplicationContext(), DEVELOPER_ID, APP_TOKEN);
     ``` 
+    You can also place this call in your main Activity onCreate() or onResume() method.
+
+   Don't forget to import com.groboot.pushapps.PushManager;
 
 3. Add GCMIntentService.java to your root package folder. For example if your package name is com.example.push then the class should be in the src/com/example/push/ folder.
 4. Add the following lines to the manifest XML file:
@@ -33,7 +36,8 @@ Android:
     <uses-permission android:name="<your package>.permission.C2D_MESSAGE" />
     ``` 
 
-5. Inside the manifest XML file, In your <application> tag add the following receiver, service and activity:
+
+5. Inside the manifest XML file, In your application tag add the following receiver, service and activity:
 
     ```xml
     <receiver
@@ -54,6 +58,13 @@ Android:
 
     ``` 
 
+Notice:
+-------
+* GCMIntentService.java must be placed in a package that is excatly your application package name,
+  otherwise your app won't be registered to the GCM service.
+* ```<service android:name=".GCMIntentService" />``` must look exactly like that - without referencing your package. 
+  You can validate it on Eclipse by holding the CTRL button and clicking on ```.GCMIntentService``` - this should
+  lead you the class itself.
 
 iOS:
 ====
@@ -62,7 +73,7 @@ iOS:
 
 2. Make sure you include AdSupport.framework in your project.
 
-3. Place "#import <PushApps/PushApps.h>" in your AppDelegate.h file. If you need, you can also declare on delegation <PushAppsDelegate>, in order to get notified on push and more events.
+3. Place #import PushApps/PushApps.h in your AppDelegate.h file. If you need, you can also declare on delegation <PushAppsDelegate>, in order to get notified on push and more events.
 
 4. In your application didFinishLaunchingWithOptions method inside the AppDelegate, add the following line:
 
