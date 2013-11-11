@@ -14,11 +14,19 @@ Android:
 2. In your application.java file, inside the method onCreate() write the following line:
     
     ```java
-    PushManager.init(getApplicationContext(), DEVELOPER_ID, APP_TOKEN);
+	PushAppsConfiguration config = new PushAppsConfiguration(R.drawable.notification_icon);
     ``` 
-    You can also place this call in your main Activity onCreate() or onResume() method.
+    Optional: in the PushAppsConfiguration you can add an Intent() which will be called when the user clicks on the notification:    
+    ```
+    config.setNotificationIntent(new Intent(this, MainActivity.class));
+    ```
+    You can as well register to the PushApps callbacks by implementing the ```PushAppsInterface.class``` interface and calling ```config.setInterface(mPushAppsInterface, false);```
 
-   Don't forget to import com.groboot.pushapps.PushManager;
+    After you have set the configuration you need to call:
+    ```java
+    PushManager.init(getApplicationContext(), DEVELOPER_ID, APP_TOKEN,config);
+    ```
+    Don't forget to import com.groboot.pushapps.PushManager;
 
 3. Add GCMIntentService.java to your root package folder. For example if your package name is com.example.push then the class should be in the src/com/example/push/ folder.
 4. Add the following lines to the manifest XML file:
@@ -57,14 +65,6 @@ Android:
         android:configChanges="orientation|keyboardHidden" />
 
     ``` 
-
-Notice:
--------
-* GCMIntentService.java must be placed in a package that is excatly your application package name,
-  otherwise your app won't be registered to the GCM service.
-* ```<service android:name=".GCMIntentService" />``` must look exactly like that - without referencing your package. 
-  You can validate it on Eclipse by holding the CTRL button and clicking on ```.GCMIntentService``` - this should
-  lead you the class itself.
 
 iOS:
 ====
