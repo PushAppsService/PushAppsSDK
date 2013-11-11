@@ -55,7 +55,7 @@
             android:name="com.groboot.pushapps.PushActivity"
             android:configChanges="orientation|keyboardHidden" />
 
-        <service android:name=".GCMIntentService" />
+        <service android:name="com.groboot.pushapps.GCMBaseIntentServiceImpl" />
     </application>
 
 </manifest>
