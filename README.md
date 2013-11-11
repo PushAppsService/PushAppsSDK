@@ -27,7 +27,7 @@ Android:
     <permission
         android:name="<your package>.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
-   <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
@@ -50,7 +50,7 @@ Android:
         </intent-filter>
     </receiver>
     
-    <service android:name=".GCMIntentService" />
+    <service android:name="com.groboot.pushapps.GCMBaseIntentServiceImpl" />
     
     <activity
         android:name="com.groboot.pushapps.PushActivity"
