@@ -102,3 +102,8 @@ iOS:
         [[PushAppsManager sharedInstance] handlePushMessageOnForeground:userInfo];
     }
     ```
+    
+    
+    
+    
+    [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/PushAppsService/pushappssdk/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
