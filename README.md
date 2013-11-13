@@ -22,13 +22,18 @@ Android:
     ```
     You can as well register to the PushApps callbacks by implementing the ```PushAppsInterface.class``` interface and calling ```config.setInterface(mPushAppsInterface, false);```
 
+    Specifying the second parameter as true will disable PushApps default showing of the notification.
+    Specifying the second parameter as false will show the PushApps default notification anyway.
+
     After you have set the configuration you need to call:
     ```java
     PushManager.init(getApplicationContext(), DEVELOPER_ID, APP_TOKEN,config);
     ```
-    Don't forget to import com.groboot.pushapps.PushManager;
-
-3. Add GCMIntentService.java to your root package folder. For example if your package name is com.example.push then the class should be in the src/com/example/push/ folder.
+    DEVELOPER_ID - your Google API Console Project ID, obtained from https://cloud.google.com/console<br/>
+    APP_TOKEN    - your App's App Token in the PushApps admin console<br/>
+    Don't forget to import com.groboot.pushapps.PushManager;<br/>
+    
+3. Add GCMIntentService.java to your root package folder. For example if your package name is com.example.push then the class should be in the src/com/example/push/ folder.<br/>
 4. Add the following lines to the manifest XML file:
     
     ```xml
