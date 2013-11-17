@@ -1,0 +1,8 @@
+C:\Users\Groboot1\Documents\Projects\shtrudel_groboot-push-service\Tasks\PushApps_Demo\PushApps_Demo\bin\Debug\PushApps_Demo.exe.config
+C:\Users\Groboot1\Documents\Projects\shtrudel_groboot-push-service\Tasks\PushApps_Demo\PushApps_Demo\bin\Debug\PushApps_Demo.exe
+C:\Users\Groboot1\Documents\Projects\shtrudel_groboot-push-service\Tasks\PushApps_Demo\PushApps_Demo\bin\Debug\PushApps_Demo.pdb
+C:\Users\Groboot1\Documents\Projects\shtrudel_groboot-push-service\Tasks\PushApps_Demo\PushApps_Demo\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Groboot1\Documents\Projects\shtrudel_groboot-push-service\Tasks\PushApps_Demo\PushApps_Demo\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Groboot1\Documents\Projects\shtrudel_groboot-push-service\Tasks\PushApps_Demo\PushApps_Demo\obj\Debug\PushApps_Demo.csprojResolveAssemblyReference.cache
+C:\Users\Groboot1\Documents\Projects\shtrudel_groboot-push-service\Tasks\PushApps_Demo\PushApps_Demo\obj\Debug\PushApps_Demo.exe
+C:\Users\Groboot1\Documents\Projects\shtrudel_groboot-push-service\Tasks\PushApps_Demo\PushApps_Demo\obj\Debug\PushApps_Demo.pdb
