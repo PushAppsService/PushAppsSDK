@@ -33,8 +33,7 @@ Android:
     APP_TOKEN    - your App's App Token in the PushApps admin console<br/>
     Don't forget to import com.groboot.pushapps.PushManager;<br/>
     
-3. Add GCMIntentService.java to your root package folder. For example if your package name is com.example.push then the class should be in the src/com/example/push/ folder.<br/>
-4. Add the following lines to the manifest XML file:
+3. Add the following lines to the manifest XML file:
     
     ```xml
     <permission
@@ -50,7 +49,7 @@ Android:
     ``` 
 
 
-5. Inside the manifest XML file, In your application tag add the following receiver, service and activity:
+4. Inside the manifest XML file, In your application tag add the following receiver, service and activity:
 
     ```xml
     <receiver
