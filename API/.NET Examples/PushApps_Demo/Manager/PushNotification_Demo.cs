@@ -13,11 +13,11 @@ namespace PushApps_Demo.Manager
         public string Message { get; set; }
         public Enums.NotificationType Type { get; set; }             // Currently need to insert 1 (Immediate)
         public string Link { get; set; }                             //optional.
-        public Enums.DevicePlatform[] Platforms { get; set; }        //optional , if not having platforms, sends out to all Application's platform
+        public List<Enums.DevicePlatform> Platforms { get; set; }        //optional , if not having platforms, sends out to all Application's platform
         public string CustomJson { get; set; }                       //optional.
         public string CustomJsonKey { get; set; }                    //optional.
-
-        public Device[] Devices { get; set; }                        //optional. 
+        public List<Device> Devices { get; set; }                        //optional.
+        public PlatforeFeatures PlatformFeatures { get; set; }
         //If Devices array has devices the message will be sent to those user and to those users ONLY.
         //If you want to send to the application's users, please make sure this array is empty or null.
 
@@ -30,7 +30,7 @@ namespace PushApps_Demo.Manager
             }
             else    // if secret token and message are OK
             {
-                if (this.Devices != null && this.Devices.Length > 0)    // if we configured devices instead of sending to all application users
+                if (this.Devices != null && this.Devices.Count > 0)    // if we configured devices instead of sending to all application users
                 {
                     foreach (Device device in this.Devices)
                     {

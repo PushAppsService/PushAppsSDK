@@ -9,12 +9,12 @@ namespace PushApps_Demo.Models
     public class Device
     {
         public string PushToken;
-        public int DeviceType { get; set; }
+        public Enums.DevicePlatform DeviceType { get; set; }
         public int TimeZone { get; set; }   // if TimeZone is null it means the user's time is same as UTC, Scheduled coming soon..
 
         public bool validate()
         {       // mandatory fields must be configured, PushToken and Device type needs to be ligal
-            return (!string.IsNullOrEmpty(this.PushToken) && (this.DeviceType == 1 || this.DeviceType == 2));
+            return (!string.IsNullOrEmpty(this.PushToken) && Enum.IsDefined(typeof(Enums.NotificationType), DeviceType));
         }
     }
 }

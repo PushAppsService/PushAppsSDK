@@ -61,6 +61,15 @@ namespace PushApps_Demo.Manager
                 }
             }
         }
+
+        public static void SendGetDevicesRequest(GetDevice_Demo Devices)
+        {
+            string GetDevicesMethod = "RemoteAPI/GetAppUsersForApp";
+            if (Devices.validate())
+            {
+                SendRequest(GetDevicesMethod, (Object)Devices);
+            }
+        }
         
 
 
@@ -95,6 +104,7 @@ namespace PushApps_Demo.Manager
                 System.IO.StreamReader sr = new System.IO.StreamReader(resp.GetResponseStream());
                 string jsonString = sr.ReadToEnd();
                 Console.WriteLine("This is the answer from PushApps server : " + jsonString);
+                Console.ReadLine();
                 PushAppResponse result = JsonConvert.DeserializeObject<PushAppResponse>(jsonString);
                 return result;
             }
