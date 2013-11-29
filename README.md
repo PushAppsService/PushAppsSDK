@@ -70,6 +70,9 @@ Android:
 
     ``` 
 
+4. Optional : to unregister a user from the PushApps service simply call ``		PushManager.unregister(getApplicationContext());`` and to register the user again to the PushApps service call `` PushManager.register(getApplicationContext());``
+
+
 iOS:
 ====
 
