@@ -17,3 +17,8 @@ C:\Users\Orr\Documents\Visual Studio 2012\Projects\shtrudel_groboot-push-service
 C:\Users\Orr\Documents\Visual Studio 2012\Projects\shtrudel_groboot-push-service\Code Samples\PushApps_Demo\PushApps_Demo\bin\Debug\PushApps_Demo.exe.config
 C:\Users\Orr\Documents\Visual Studio 2012\Projects\shtrudel_groboot-push-service\Code Samples\PushApps_Demo\PushApps_Demo\obj\Debug\PushApps_Demo.exe
 C:\Users\Orr\Documents\Visual Studio 2012\Projects\shtrudel_groboot-push-service\Code Samples\PushApps_Demo\PushApps_Demo\obj\Debug\PushApps_Demo.pdb
+C:\Users\Orr\Documents\Visual Studio 2012\Projects\shtrudel_groboot-push-service\Code Samples\PushApps_Demo\PushApps_Demo\bin\Debug\PushApps_Demo.exe
+C:\Users\Orr\Documents\Visual Studio 2012\Projects\shtrudel_groboot-push-service\Code Samples\PushApps_Demo\PushApps_Demo\bin\Debug\PushApps_Demo.pdb
+C:\Users\Orr\Documents\Visual Studio 2012\Projects\shtrudel_groboot-push-service\Code Samples\PushApps_Demo\PushApps_Demo\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Orr\Documents\Visual Studio 2012\Projects\shtrudel_groboot-push-service\Code Samples\PushApps_Demo\PushApps_Demo\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Orr\Documents\Visual Studio 2012\Projects\shtrudel_groboot-push-service\Code Samples\PushApps_Demo\PushApps_Demo\obj\Debug\PushApps_Demo.csprojResolveAssemblyReference.cache

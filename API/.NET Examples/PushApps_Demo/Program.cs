@@ -10,12 +10,12 @@ namespace PushApps_Demo
 {
     class Program
     {
-        const string SecretToken = "YOUR SECRET TOKEN";
+        const string SecretToken = "98d45829-de15-4bd9-aa68-5154a7d7cdae";
         static void Main(string[] args)
         {
             //SendRegisterRequest();      //sends a register request
             //SendUnregisterRequest();    //sends an unregister request
-            //SendPushNotification();     //sends a push notification request
+            SendPushNotification();     //sends a push notification request
             //GetAllApplicationUsers();   //sends a request to get all devices by specific parameters.
         }
 
@@ -70,6 +70,17 @@ namespace PushApps_Demo
              * User.DeviceType = Enums.DevicePlatform.Android; // can be also Enums.DevicePlatform.iOS
              * User.PushToken = "Enter Push Token Here";
              */
+
+            /*
+             * Paltforms specific features
+             */ 
+            notification.PlatformFeatures = new PlatforeFeatures();
+            notification.PlatformFeatures.AndroidTitle = "some Android title";
+            //notification.PlatformFeatures.AndroidSound = "sound file without extension";
+            notification.PlatformFeatures.iOSBadge = 1;
+            //notification.PlatformFeatures.iOSSound = "sound file without extension";
+
+
             notification.Type = Enums.NotificationType.Immediate;      // Currently the only option available in the remote API.
             ActionsManager.SendPushNotificationRequest(notification);
         }
