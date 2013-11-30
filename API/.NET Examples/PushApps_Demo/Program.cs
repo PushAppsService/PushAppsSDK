@@ -10,12 +10,12 @@ namespace PushApps_Demo
 {
     class Program
     {
-        const string SecretToken = "98d45829-de15-4bd9-aa68-5154a7d7cdae";
+        const string SecretToken = "THIS IS MY SECRET TOKEN";
         static void Main(string[] args)
         {
             //SendRegisterRequest();      //sends a register request
             //SendUnregisterRequest();    //sends an unregister request
-            SendPushNotification();     //sends a push notification request
+            //SendPushNotification();     //sends a push notification request
             //GetAllApplicationUsers();   //sends a request to get all devices by specific parameters.
         }
 
@@ -56,12 +56,13 @@ namespace PushApps_Demo
         {
             PushNotification_Demo notification = new PushNotification_Demo();
             notification.SecretToken = SecretToken;
-            notification.Message = "Hello World !";
+            notification.Message = "Hellow World";
 
-            /*  an empty list will send to all available platforms.
-             *  notification.Platforms.Add(Enums.DevicePlatform.Android);   // in case you want to choose only one platform and not send all
-             *  notification.Platforms.Add(Enums.DevicePlatform.iOS);       // in case you want to choose only one platform and not send all
-             */
+            //  an empty list will send to all available platforms.
+               notification.Platforms = new List<Enums.DevicePlatform>();
+               notification.Platforms.Add(Enums.DevicePlatform.Android);   // in case you want to choose only one platform and not send all
+               notification.Platforms.Add(Enums.DevicePlatform.iOS);       // in case you want to choose only one platform and not send all
+             
 
 
             /* in case you want to send to custom devices list.
