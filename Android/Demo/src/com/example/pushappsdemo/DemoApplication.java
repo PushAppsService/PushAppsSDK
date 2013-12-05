@@ -1,57 +1,35 @@
 package com.example.pushappsdemo;
 
-import android.app.Application;
-import android.content.Context;
-import android.content.Intent;
-import android.util.Log;
-
-import com.groboot.pushapps.PushAppsConfiguration;
-import com.groboot.pushapps.PushAppsInterface;
+import com.groboot.pushapps.PushAppsRegistrationInterface;
 import com.groboot.pushapps.PushManager;
 
+import android.app.Application;
+import android.content.Context;
+import android.util.Log;
+
 public class DemoApplication extends Application {
-	public static final String GOOGLE_API_PROJECT_ID = YOUR_GOOGLE_API_PROJECT_ID; //your sender id (google API project id)
-	public static final String PUSHAPPS_APP_TOKEN = YOUR_PUSHAPPS_APP_TOKEN; //your application token from PushApps
+	
+	public static final String GOOGLE_API_PROJECT_ID = ""; //your sender id (google API project id)
+	public static final String PUSHAPPS_APP_TOKEN = ""; //your application token from PushApps
+		
 	@Override
 	public void onCreate() {
 		super.onCreate();
-		
-		//initialize the PushApps configuration with a notification icon resource id
-		PushAppsConfiguration config = new PushAppsConfiguration(R.drawable.notification_icon);
-		
-		
-		//optional - here you can set the intent which will be fired when the user clicks on the notification.
-		config.setNotificationIntent(new Intent(this, MainActivity.class));
-		
-		//optional - pass an interface to receive GCM callbacks
-		config.setInterface(pushAppsInterface, false);
-		
-		
-        //this method must be called
-		PushManager.init(getApplicationContext(), GOOGLE_API_PROJECT_ID,
-				PUSHAPPS_APP_TOKEN,config);
+		PushManager.init(getApplicationContext(), GOOGLE_API_PROJECT_ID, PUSHAPPS_APP_TOKEN);
+		PushManager.getInstance(getApplicationContext()).registerForRegistrationEvents(new PushAppsRegistrationInterface() {
+			
+			@Override
+			public void onUnregistered(Context paramContext, String paramString) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onRegistered(Context paramContext, String paramString) {
+				Log.d("DemoApplication", "REGISTERED: " + paramString);
+				
+			}
+		});
 	}
 	
-	PushAppsInterface pushAppsInterface = new PushAppsInterface() {
-		
-		@Override
-		public void onUnregistered(Context paramContext, String paramString) {
-			Log.d("DemoApplication","onUnregistered");
-		}
-		
-		@Override
-		public void onRegistered(Context paramContext, String paramString) {
-			Log.d("DemoApplication","onRegistered");
-		}
-		
-		@Override
-		public void onMessage(Context paramContext, Intent paramIntent) {
-			Log.d("DemoApplication","onMessage");
-		}
-		
-		@Override
-		public void onError(Context paramContext, String paramString) {
-			Log.d("DemoApplication","onError");
-		}
-	};
 }

@@ -16,7 +16,7 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-        pushapps.registerDevice("47811378595", "1a3267ab-aa11-4bb2-8dda-034b3a6566ee", pushapps.onDeviceRegistered, function (message) {
+        pushapps.registerDevice("GOOGLE PROJECT ID", "PUSHAPPS APPT TOKEN", pushapps.onDeviceRegistered, function (message) {
     		alert("ERROR: " + message);
     	});
     },
