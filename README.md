@@ -11,26 +11,13 @@ Android:
 ========
 
 1. Add the pushapps.jar file to your project libs folder.
-2. In your application.java file, inside the method onCreate() write the following line:
+2. In your main activity, inside the method onCreate() write the following line:
     
     ```java
-	PushAppsConfiguration config = new PushAppsConfiguration(R.drawable.notification_icon);
-    ``` 
-    Optional: in the PushAppsConfiguration you can add an Intent() which will be called when the user clicks on the notification:    
+    PushManager.init(getApplicationContext(), GOOGLE_API_PROJECT_ID, PUSHAPPS_APP_TOKEN);
     ```
-    config.setNotificationIntent(new Intent(this, MainActivity.class));
-    ```
-    You can as well register to the PushApps callbacks by implementing the ```PushAppsInterface.class``` interface and calling ```config.setInterface(mPushAppsInterface, false);```
-
-    Specifying the second parameter as true will disable PushApps default showing of the notification.
-    Specifying the second parameter as false will show the PushApps default notification anyway.
-
-    After you have set the configuration you need to call:
-    ```java
-    PushManager.init(getApplicationContext(), DEVELOPER_ID, APP_TOKEN,config);
-    ```
-    DEVELOPER_ID - your Google API Console Project ID, obtained from https://cloud.google.com/console<br/>
-    APP_TOKEN    - your App's App Token in the PushApps admin console<br/>
+    GOOGLE_API_PROJECT_ID - your Google API Console Project ID, obtained from https://cloud.google.com/console<br/>
+    PUSHAPPS_APP_TOKEN    - your App's App Token in the PushApps admin console<br/>
     Don't forget to import com.groboot.pushapps.PushManager;<br/>
     
 3. Add the following lines to the manifest XML file:
@@ -70,7 +57,20 @@ Android:
 
     ``` 
 
-4. Optional : to unregister a user from the PushApps service simply call ``		PushManager.unregister(getApplicationContext());`` and to register the user again to the PushApps service call `` PushManager.register(getApplicationContext());``
+4. Optional : to unregister a user (or register again) from the PushApps service simply call
+	```
+	PushManager mPushManager = PushManager.getInstance(getApplicationContext());
+		mPushManager.register(getApplicationContext()); // For registration
+		mPushManager.unregister(getApplicationContext()); // For unregistration
+	```
+
+HOW TO FIRE CALLBACKS FOR AFTER PUSH NOTIFICATIONS EVENTS:
+
+If you would like to set some of your own code after device was registered / unregistered, or maybe build by yourself the notification, simply follow the same steps above, but in STEP 1, instead of putting this code in your main activity, put it inside the onCreate method in you application file (extends from android.app.Application).
+
+You can use the registration interface for register / unregister callbacks, or the message interface to get notify on incoming messages (you can also implement BOTH).
+
+Please refer to our full guide for examples, or contact us at support@pushapps.mobi
 
 
 iOS:
