@@ -29,6 +29,7 @@
 - (void)startPushAppsWithAppToken:(NSString *)appToken withLaunchOptions:(NSDictionary *)launchOptions;
 - (void)updatePushToken:(NSData *)data;
 - (void)handlePushMessageOnForeground:(NSDictionary *)launchOptions;
+- (void)reportEventwithEventId:(NSString *)eventId;
 
 - (void)clearApplicationBadge;
 
