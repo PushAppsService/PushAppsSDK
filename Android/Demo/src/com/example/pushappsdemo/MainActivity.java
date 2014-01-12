@@ -15,18 +15,7 @@ import android.widget.TextView;
 import com.groboot.pushapps.PushManager;
 
 public class MainActivity extends Activity {
-	public static final String GOOGLE_API_PROJECT_ID = ""; // your
-																		// sender
-																		// id
-																		// (google
-																		// API
-																		// project
-																		// id)
-	public static final String PUSHAPPS_APP_TOKEN = ""; // your
-																							// application
-																							// token
-																							// from
-																							// PushApps
+
 	EditText actionText;
 	Button register, unregister, actionSend;
 	Button clear;
@@ -40,11 +29,6 @@ public class MainActivity extends Activity {
 		//used for demo purpose
 		sharedPrefs = getSharedPreferences("pushappsdemo", MODE_PRIVATE);
 		
-		//first we initialize the push manager
-		PushManager.init(getBaseContext(), GOOGLE_API_PROJECT_ID, PUSHAPPS_APP_TOKEN);
-		//these methods are both optional and used for the notification customization 
-		PushManager.getInstance(getApplicationContext()).setNotificationIcon(R.drawable.notification_icon);
-		PushManager.getInstance(getApplicationContext()).setShouldStackNotifications(false);
 		
 		setContentView(R.layout.activity_main);
 		message = (TextView) findViewById(R.id.message);
@@ -67,6 +51,7 @@ public class MainActivity extends Activity {
 		
 		Bundle bundle = this.getIntent().getExtras();
 		if (bundle != null) {
+			
 			//for the demo purpose only, we clear the previous message data
 			clear();
 			messageLayout.setVisibility(View.VISIBLE);
