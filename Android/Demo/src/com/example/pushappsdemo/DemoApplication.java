@@ -10,7 +10,7 @@ import com.groboot.pushapps.PushManager;
 
 public class DemoApplication extends Application {
 	public static final String GOOGLE_API_PROJECT_ID = ""; //your sender id (google API project id)
-	public static final String PUSHAPPS_APP_TOKEN = ""; //your application token from PushApps
+	public static final String PUSHAPPS_APP_TOKEN = "";	
 	@Override
 	public void onCreate() {
 		super.onCreate();
@@ -18,7 +18,7 @@ public class DemoApplication extends Application {
 		PushManager.init(getBaseContext(), GOOGLE_API_PROJECT_ID, PUSHAPPS_APP_TOKEN);
 		//these methods are both optional and used for the notification customization 
 		PushManager.getInstance(getApplicationContext()).setNotificationIcon(R.drawable.notification_icon);
-		PushManager.getInstance(getApplicationContext()).setShouldStackNotifications(false);
+		PushManager.getInstance(getApplicationContext()).setShouldStartIntentAsNewTask(true);
 
 		/*//optional - register for message events
 		PushManager.getInstance(getApplicationContext()).registerForMessagesEvents(new PushAppsMessageInterface() {

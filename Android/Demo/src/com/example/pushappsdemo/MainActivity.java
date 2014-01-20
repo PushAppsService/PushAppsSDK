@@ -3,8 +3,10 @@ package com.example.pushappsdemo;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -28,8 +30,6 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		//used for demo purpose
 		sharedPrefs = getSharedPreferences("pushappsdemo", MODE_PRIVATE);
-		
-		
 		setContentView(R.layout.activity_main);
 		message = (TextView) findViewById(R.id.message);
 		title = (TextView) findViewById(R.id.title);
@@ -47,11 +47,12 @@ public class MainActivity extends Activity {
 				clear();
 			}
 		});
-		
-		
-		Bundle bundle = this.getIntent().getExtras();
+		handleNotification(getIntent().getExtras());
+	}
+	
+	
+	private void handleNotification(Bundle bundle){
 		if (bundle != null) {
-			
 			//for the demo purpose only, we clear the previous message data
 			clear();
 			messageLayout.setVisibility(View.VISIBLE);
@@ -137,4 +138,10 @@ public class MainActivity extends Activity {
 		clear.setVisibility(View.GONE);
 	}
 
+	//onNewIntent can be called if if we set setShouldStartIntentAsNewTask(false) and there is an instance of the activity, otherwise a new instance of the activity will be created
+	@Override
+	public void onNewIntent(Intent i){
+		super.onNewIntent(i);
+		handleNotification(i.getExtras());
+	}
 }
