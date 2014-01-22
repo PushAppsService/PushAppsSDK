@@ -18,7 +18,6 @@ public class DemoApplication extends Application {
 		PushManager.init(getBaseContext(), GOOGLE_API_PROJECT_ID, PUSHAPPS_APP_TOKEN);
 		//these methods are both optional and used for the notification customization 
 		PushManager.getInstance(getApplicationContext()).setNotificationIcon(R.drawable.notification_icon);
-		PushManager.getInstance(getApplicationContext()).setShouldStackNotifications(false);
 
 		/*//optional - register for message events
 		PushManager.getInstance(getApplicationContext()).registerForMessagesEvents(new PushAppsMessageInterface() {
