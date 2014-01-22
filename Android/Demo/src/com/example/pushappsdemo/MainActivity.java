@@ -3,6 +3,7 @@ package com.example.pushappsdemo;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -23,13 +24,52 @@ public class MainActivity extends Activity {
 	SharedPreferences sharedPrefs;
 	TableLayout messageLayout;
 
+	private void handleMessage(Bundle bundle) {
+		clear();
+		messageLayout.setVisibility(View.VISIBLE);
+		clear.setVisibility(View.VISIBLE);
+		sharedPrefs.edit().putBoolean("has_notification", true).commit();
+		if (bundle.containsKey(PushManager.NOTIFICATION_TITLE_KEY)) {
+			title.setText(bundle.getString(PushManager.NOTIFICATION_TITLE_KEY));
+			// for the demo purpose we store the title
+			sharedPrefs.edit().putString("title", bundle.getString(PushManager.NOTIFICATION_TITLE_KEY)).commit();
+		}
+		if (bundle.containsKey(PushManager.NOTIFICATION_MESSAGE_KEY)) {
+			message.setText(bundle.getString(PushManager.NOTIFICATION_MESSAGE_KEY));
+			// for the demo purpose we store the message
+			sharedPrefs.edit().putString("message", bundle.getString(PushManager.NOTIFICATION_MESSAGE_KEY)).commit();
+		}
+		if (bundle.containsKey(PushManager.EXTRA_DATA)) {
+			json.setText(PushManager.EXTRA_DATA + ": " + bundle.getString(PushManager.EXTRA_DATA));
+			// for the demo purpose we store the data
+			sharedPrefs.edit().putString("data", bundle.getString(PushManager.EXTRA_DATA)).commit();
+		} else {
+			for (String key : bundle.keySet()) {
+				try {
+					// a way to check a valid json
+					JSONObject jsonObject = new JSONObject(bundle.get(key).toString());
+					json.setText(key + ": " + bundle.get(key).toString());
+					// for the demo purpose we store the data
+					sharedPrefs.edit().putString("data", key + ": " + bundle.get(key).toString()).commit();
+					break;
+				} catch (Exception e) {
+
+				}
+			}
+		}
+		if (bundle.containsKey(PushManager.NOTIFICATION_SOUND_KEY)) {
+			sound.setText(bundle.getString(PushManager.NOTIFICATION_SOUND_KEY));
+			// for the demo purpose we store the sound
+			sharedPrefs.edit().putString("sound", bundle.getString(PushManager.NOTIFICATION_SOUND_KEY)).commit();
+		}
+	}
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		//used for demo purpose
+		// used for demo purpose
 		sharedPrefs = getSharedPreferences("pushappsdemo", MODE_PRIVATE);
-		
-		
+
 		setContentView(R.layout.activity_main);
 		message = (TextView) findViewById(R.id.message);
 		title = (TextView) findViewById(R.id.title);
@@ -39,7 +79,7 @@ public class MainActivity extends Activity {
 		actionText = (EditText) findViewById(R.id.send_text);
 		actionSend = (Button) findViewById(R.id.send);
 		register = (Button) findViewById(R.id.register);
-		messageLayout = (TableLayout)findViewById(R.id.message_layout);
+		messageLayout = (TableLayout) findViewById(R.id.message_layout);
 		clear.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -47,50 +87,14 @@ public class MainActivity extends Activity {
 				clear();
 			}
 		});
-		
-		
+
 		Bundle bundle = this.getIntent().getExtras();
 		if (bundle != null) {
-			
-			//for the demo purpose only, we clear the previous message data
-			clear();
-			messageLayout.setVisibility(View.VISIBLE);
-			clear.setVisibility(View.VISIBLE);
-			sharedPrefs.edit().putBoolean("has_notification", true).commit();
-			if (bundle.containsKey(PushManager.NOTIFICATION_TITLE_KEY)) {
-				title.setText(bundle.getString(PushManager.NOTIFICATION_TITLE_KEY));
-				//for the demo purpose we store the title
-				sharedPrefs.edit().putString("title", bundle.getString(PushManager.NOTIFICATION_TITLE_KEY)).commit();
-			}
-			if (bundle.containsKey(PushManager.NOTIFICATION_MESSAGE_KEY)) {
-				message.setText(bundle.getString(PushManager.NOTIFICATION_MESSAGE_KEY));
-				//for the demo purpose we store the message
-				sharedPrefs.edit().putString("message", bundle.getString(PushManager.NOTIFICATION_MESSAGE_KEY)).commit();
-			}
-			if (bundle.containsKey(PushManager.EXTRA_DATA)) {
-				json.setText(PushManager.EXTRA_DATA + ": " + bundle.getString(PushManager.EXTRA_DATA));
-				//for the demo purpose we store the data
-				sharedPrefs.edit().putString("data", bundle.getString(PushManager.EXTRA_DATA)).commit();
-			} else {
-				for (String key : bundle.keySet()) {
-					try {
-						//a way to check a valid json
-						JSONObject jsonObject = new JSONObject(bundle.get(key).toString());
-						json.setText(key + ": " + bundle.get(key).toString());
-						//for the demo purpose we store the data
-						sharedPrefs.edit().putString("data", key + ": " + bundle.get(key).toString()).commit();
-						break;
-					} catch (Exception e) {
 
-					}
-				}
-			}
-			if (bundle.containsKey(PushManager.NOTIFICATION_SOUND_KEY)) {
-				sound.setText(bundle.getString(PushManager.NOTIFICATION_SOUND_KEY));
-				//for the demo purpose we store the sound
-				sharedPrefs.edit().putString("sound", bundle.getString(PushManager.NOTIFICATION_SOUND_KEY)).commit();
-			}
-			//for demo purposes we display the previous message which was stored previously.
+			// for the demo purpose only, we clear the previous message data
+			handleMessage(bundle);
+			// for demo purposes we display the previous message which was
+			// stored previously.
 		} else {
 			if (sharedPrefs.getBoolean("has_notification", false)) {
 				message.setText(sharedPrefs.getString("message", ""));
@@ -122,19 +126,28 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				if (actionText.getText().toString().trim().length() > 0) {
-					PushManager.getInstance(getBaseContext()).sendEvent(actionText.getText().toString().trim());
+					PushManager.getInstance(getBaseContext()).reportEvent(actionText.getText().toString().trim());
 					actionText.setText("");
 				}
 			}
 		});
 	}
 
-	//for demo purpose we clear the previous stored data
+	// for demo purpose we clear the previous stored data
 	private void clear() {
 		sharedPrefs.edit().putBoolean("has_notification", false).putString("message", "").putString("title", "").putString("sound", "")
 				.putString("data", "").commit();
 		messageLayout.setVisibility(View.GONE);
 		clear.setVisibility(View.GONE);
+	}
+
+	@Override
+	public void onNewIntent(Intent intent) {
+		super.onNewIntent(intent);
+		Bundle bundle = intent.getExtras();
+		if (bundle != null) {
+			handleMessage(bundle);
+		}
 	}
 
 }

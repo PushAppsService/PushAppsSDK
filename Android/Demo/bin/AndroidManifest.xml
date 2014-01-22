@@ -5,8 +5,8 @@
     android:versionName="1.5" >
 
     <uses-sdk
-        android:minSdkVersion="8"
-        android:targetSdkVersion="17" />
+        android:minSdkVersion="14"
+        android:targetSdkVersion="18" />
 
     <permission
         android:name="com.example.pushappsdemo.permission.C2D_MESSAGE"
