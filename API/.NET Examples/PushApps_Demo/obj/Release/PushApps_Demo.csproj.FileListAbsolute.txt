@@ -1,0 +1,16 @@
+C:\Users\Orr\Documents\Visual Studio 2012\Projects\shtrudel_groboot-push-service\Code Samples\PushApps_Demo\PushApps_Demo\bin\Release\PushApps_Demo.exe.config
+C:\Users\Orr\Documents\Visual Studio 2012\Projects\shtrudel_groboot-push-service\Code Samples\PushApps_Demo\PushApps_Demo\bin\Release\PushApps_Demo.exe
+C:\Users\Orr\Documents\Visual Studio 2012\Projects\shtrudel_groboot-push-service\Code Samples\PushApps_Demo\PushApps_Demo\bin\Release\PushApps_Demo.pdb
+C:\Users\Orr\Documents\Visual Studio 2012\Projects\shtrudel_groboot-push-service\Code Samples\PushApps_Demo\PushApps_Demo\bin\Release\Newtonsoft.Json.dll
+C:\Users\Orr\Documents\Visual Studio 2012\Projects\shtrudel_groboot-push-service\Code Samples\PushApps_Demo\PushApps_Demo\bin\Release\Newtonsoft.Json.xml
+C:\Users\Orr\Documents\Visual Studio 2012\Projects\shtrudel_groboot-push-service\Code Samples\PushApps_Demo\PushApps_Demo\obj\Release\PushApps_Demo.csprojResolveAssemblyReference.cache
+C:\Users\Orr\Documents\Visual Studio 2012\Projects\shtrudel_groboot-push-service\Code Samples\PushApps_Demo\PushApps_Demo\obj\Release\PushApps_Demo.exe
+C:\Users\Orr\Documents\Visual Studio 2012\Projects\shtrudel_groboot-push-service\Code Samples\PushApps_Demo\PushApps_Demo\obj\Release\PushApps_Demo.pdb
+C:\Users\Orr\Documents\Projects\groboot_pushapps-web-server\Code Samples\PushApps_Demo\PushApps_Demo\bin\Release\PushApps_Demo.exe.config
+C:\Users\Orr\Documents\Projects\groboot_pushapps-web-server\Code Samples\PushApps_Demo\PushApps_Demo\obj\Release\PushApps_Demo.exe
+C:\Users\Orr\Documents\Projects\groboot_pushapps-web-server\Code Samples\PushApps_Demo\PushApps_Demo\obj\Release\PushApps_Demo.pdb
+C:\Users\Orr\Documents\Projects\groboot_pushapps-web-server\Code Samples\PushApps_Demo\PushApps_Demo\bin\Release\PushApps_Demo.exe
+C:\Users\Orr\Documents\Projects\groboot_pushapps-web-server\Code Samples\PushApps_Demo\PushApps_Demo\bin\Release\PushApps_Demo.pdb
+C:\Users\Orr\Documents\Projects\groboot_pushapps-web-server\Code Samples\PushApps_Demo\PushApps_Demo\bin\Release\Newtonsoft.Json.dll
+C:\Users\Orr\Documents\Projects\groboot_pushapps-web-server\Code Samples\PushApps_Demo\PushApps_Demo\bin\Release\Newtonsoft.Json.xml
+C:\Users\Orr\Documents\Projects\groboot_pushapps-web-server\Code Samples\PushApps_Demo\PushApps_Demo\obj\Release\PushApps_Demo.csprojResolveAssemblyReference.cache

@@ -15,7 +15,7 @@ namespace PushApps_Demo
         {
             //SendRegisterRequest();      //sends a register request
             //SendUnregisterRequest();    //sends an unregister request
-            //SendPushNotification();     //sends a push notification request
+            SendPushNotification();     //sends a push notification request
             //GetAllApplicationUsers();   //sends a request to get all devices by specific parameters.
         }
 
@@ -51,38 +51,49 @@ namespace PushApps_Demo
         /**
          * Method is simulating a push notification request being sent to PushApps server.
          * including validations that needs to be done before sending notification.
+         * Pay attention that only 1 of the audience option is allowed: either By Platforms OR Devices OR customIds OR DeviceIds.
         */
         public static void SendPushNotification()
         {
             PushNotification_Demo notification = new PushNotification_Demo();
             notification.SecretToken = SecretToken;
-            notification.Message = "Hellow World";
+            notification.Message = "Hello World";
 
             //  an empty list will send to all available platforms.
                notification.Platforms = new List<Enums.DevicePlatform>();
                notification.Platforms.Add(Enums.DevicePlatform.Android);   // in case you want to choose only one platform and not send all
                notification.Platforms.Add(Enums.DevicePlatform.iOS);       // in case you want to choose only one platform and not send all
-             
 
+           
 
-            /* in case you want to send to custom devices list.
-             * notification.Devices = new List<Device>();
-             * Device User = new Device();
-             * User.DeviceType = Enums.DevicePlatform.Android; // can be also Enums.DevicePlatform.iOS
-             * User.PushToken = "Enter Push Token Here";
-             */
+               /* in case you want to send to custom devices list.
+                * notification.Devices = new List<Device>();
+                * Device User = new Device();
+                * User.DeviceType = Enums.DevicePlatform.Android; // can be also Enums.DevicePlatform.iOS
+                * User.PushToken = "Enter Push Token Here";
+                */
+
+               /* in case you want to send to custom list of Device ids
+                * notification.DeviceIds = new List<string>();
+                * notification.DeviceIds.Add("30010501023");
+                * notification.DeviceIds.Add("44557015744");
+                */
+
+               /* in case you want to send to a list of Custom ids you provided eariler.
+                * notification.CustomIds = new List<string>();
+                * notification.CustomIds.Add("IosDevice1");
+                * notification.CustomIds.Add("AndroidDevice10");
+                */
 
             /*
-             * Paltforms specific features
+             * Platforms specific features, Null in sound means no sound will be sent causing device to get silent notification.
              */ 
             notification.PlatformFeatures = new PlatforeFeatures();
-            notification.PlatformFeatures.AndroidTitle = "some Android title";
+            notification.PlatformFeatures.AndroidTitle = "Some Android Title";
             //notification.PlatformFeatures.AndroidSound = "sound file without extension";
-            notification.PlatformFeatures.iOSBadge = 1;
+            notification.PlatformFeatures.iOSBadge = 1;     //can be changed to every number.
             //notification.PlatformFeatures.iOSSound = "sound file without extension";
 
-
-            notification.Type = Enums.NotificationType.Immediate;      // Currently the only option available in the remote API.
             ActionsManager.SendPushNotificationRequest(notification);
         }
 

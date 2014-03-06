@@ -12,8 +12,7 @@ namespace PushApps_Demo.Manager
         public string Link { get; set; }            //optional.
         public string CustomJsonKey { get; set; }   //optional.
         public string CustomJson { get; set; }      //optional.
-
-        //we dont need to validate payload, it is part of the notification. if notification validate is OK , so as Payload.
+        public string SecretToken { get; set; }      
 
     }
 }

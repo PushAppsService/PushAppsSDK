@@ -44,6 +44,7 @@ namespace PushApps_Demo.Manager
                     // prevent an error response when sending notification with high payload (ios payload is limited to 255 Bytes).
                     // If Ios is not configured to the current app, iOS payload isn't being checked.
                     Payload_Demo payload = new Payload_Demo();
+                    payload.SecretToken = notif.SecretToken;
                     payload.Message = notif.Message;
                     payload.Link = notif.Link;
                     payload.CustomJsonKey = notif.CustomJsonKey;
@@ -96,16 +97,21 @@ namespace PushApps_Demo.Manager
                                                   Formatting = Newtonsoft.Json.Formatting.None
                                               });
                 StreamWriter writer = new StreamWriter(request.GetRequestStream());
-                Console.WriteLine("This is the json you are now sending : " + json);
+                //Console.WriteLine("This is the json you are now sending : " + json);
                 writer.Write(json);
                 writer.Close();
                 System.Net.WebResponse resp = request.GetResponse();
                 if (resp == null) return new PushAppResponse { Code = "0", Message = "response is null" };
                 System.IO.StreamReader sr = new System.IO.StreamReader(resp.GetResponseStream());
                 string jsonString = sr.ReadToEnd();
-                Console.WriteLine("This is the answer from PushApps server : " + jsonString);
-                Console.ReadLine();
+                //Console.WriteLine("This is the answer from PushApps server : " + jsonString +"\n Press Any Key To Continue... " );
+                //Console.ReadLine();
                 PushAppResponse result = JsonConvert.DeserializeObject<PushAppResponse>(jsonString);
+                if (!result.Code.Equals("100"))
+                {
+                    Console.WriteLine("Error " + result.Code + ", Message " + result.Message + ",\nrequest was " + json);
+                    Console.Read();
+                }
                 return result;
             }
             catch (Exception e)

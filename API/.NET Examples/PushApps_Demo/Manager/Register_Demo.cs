@@ -12,6 +12,7 @@ namespace PushApps_Demo.Manager
         public string SecretToken { get; set; }
         public string PushToken { get; set; }
         public string DeviceId { get; set; }
+        public string DeviceDescription { get; set; }
         public Enums.DevicePlatform DeviceType { get; set; }    // 1 - Android, 2 - iOS.
         public string CustomId { get; set; }                    //optional.
         public string OSVersion { get; set; }                   //optional.
@@ -21,7 +22,7 @@ namespace PushApps_Demo.Manager
 
         public bool validate()
         {
-            if (string.IsNullOrEmpty(this.SecretToken) || string.IsNullOrEmpty(this.PushToken) || string.IsNullOrEmpty(this.DeviceId)
+            if (string.IsNullOrEmpty(this.SecretToken) || string.IsNullOrEmpty(this.PushToken) || (string.IsNullOrEmpty(this.DeviceId) && string.IsNullOrEmpty(this.CustomId))
                 || (this.DeviceType != Enums.DevicePlatform.Android && this.DeviceType != Enums.DevicePlatform.iOS))
             {
                 Console.WriteLine("Mandatory field is missing in Register Request");
