@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		480BCE4918C4C97E00F43972 /* PushApps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 480BCE4818C4C97E00F43972 /* PushApps.framework */; };
 		486C04EB1802D2AA00128C47 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 486C04EA1802D2AA00128C47 /* Foundation.framework */; };
 		486C04ED1802D2AA00128C47 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 486C04EC1802D2AA00128C47 /* CoreGraphics.framework */; };
 		486C04EF1802D2AA00128C47 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 486C04EE1802D2AA00128C47 /* UIKit.framework */; };
@@ -21,8 +22,6 @@
 		486C05101802D2AA00128C47 /* demoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 486C050F1802D2AA00128C47 /* demoTests.m */; };
 		486C051F1802D79B00128C47 /* Default~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 486C051E1802D79B00128C47 /* Default~iphone.png */; };
 		486C05211802D89C00128C47 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 486C05201802D89C00128C47 /* Storyboard.storyboard */; };
-		486C05231802DA5A00128C47 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 486C05221802DA5A00128C47 /* AdSupport.framework */; };
-		48BB3FD3180C4931009443E9 /* PushApps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48BB3FD2180C4931009443E9 /* PushApps.framework */; };
 		48C7A65218040CCD0021C289 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48C7A65118040CCD0021C289 /* MainViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		480BCE4818C4C97E00F43972 /* PushApps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PushApps.framework; sourceTree = "<group>"; };
 		486C04E71802D2AA00128C47 /* demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		486C04EA1802D2AA00128C47 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		486C04EC1802D2AA00128C47 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -58,8 +58,6 @@
 		486C051B1802D5B400128C47 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		486C051E1802D79B00128C47 /* Default~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default~iphone.png"; sourceTree = "<group>"; };
 		486C05201802D89C00128C47 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
-		486C05221802DA5A00128C47 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
-		48BB3FD2180C4931009443E9 /* PushApps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PushApps.framework; path = ../../../Copy/RND/FinalVersions/GrobootPushSdk/Development/iOS/PushApps.framework; sourceTree = "<group>"; };
 		48C7A65018040CCD0021C289 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		48C7A65118040CCD0021C289 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,8 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48BB3FD3180C4931009443E9 /* PushApps.framework in Frameworks */,
-				486C05231802DA5A00128C47 /* AdSupport.framework in Frameworks */,
+				480BCE4918C4C97E00F43972 /* PushApps.framework in Frameworks */,
 				486C04ED1802D2AA00128C47 /* CoreGraphics.framework in Frameworks */,
 				486C04EF1802D2AA00128C47 /* UIKit.framework in Frameworks */,
 				486C04EB1802D2AA00128C47 /* Foundation.framework in Frameworks */,
@@ -116,8 +113,7 @@
 		486C04E91802D2AA00128C47 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				48BB3FD2180C4931009443E9 /* PushApps.framework */,
-				486C05221802DA5A00128C47 /* AdSupport.framework */,
+				480BCE4818C4C97E00F43972 /* PushApps.framework */,
 				486C04EA1802D2AA00128C47 /* Foundation.framework */,
 				486C04EC1802D2AA00128C47 /* CoreGraphics.framework */,
 				486C04EE1802D2AA00128C47 /* UIKit.framework */,
@@ -396,13 +392,13 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = /Users/asafron2304/Copy/RND/FinalVersions/GrobootPushSdk/Production/iOS;
+				FRAMEWORK_SEARCH_PATHS = "/Users/asafron2304/Documents/Projects/PushApps/**GITHUB/iOS/Demo";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "demo/demo-Prefix.pch";
 				INFOPLIST_FILE = "demo/demo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5E534163-29F1-4A0A-B29E-F034CFCC417E";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -414,13 +410,13 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = /Users/asafron2304/Copy/RND/FinalVersions/GrobootPushSdk/Production/iOS;
+				FRAMEWORK_SEARCH_PATHS = "/Users/asafron2304/Documents/Projects/PushApps/**GITHUB/iOS/Demo";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "demo/demo-Prefix.pch";
 				INFOPLIST_FILE = "demo/demo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5E534163-29F1-4A0A-B29E-F034CFCC417E";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

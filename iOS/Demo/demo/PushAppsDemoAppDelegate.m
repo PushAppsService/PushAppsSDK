@@ -12,7 +12,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [[PushAppsManager sharedInstance] startPushAppsWithAppToken:@"1a3267ab-aa11-4bb2-8dda-034b3a6566ee" withLaunchOptions:launchOptions];
+    [[PushAppsManager sharedInstance] startPushAppsWithAppToken:@"18d943b9-677a-4b95-a29c-5d77b1e3a684" withLaunchOptions:launchOptions];
     [[PushAppsManager sharedInstance] setDelegate:self];
     
     [[UINavigationBar appearance] setBackgroundColor:[UIColor colorWithRed:206.0/255.0 green:222.0/255.0 blue:230.0/255.0 alpha:1.0]];
@@ -36,6 +36,8 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
