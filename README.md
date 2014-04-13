@@ -80,18 +80,16 @@ iOS:
 
 1. Add PushApps.framework to your xcode project. Please make sure that the "Copy items into destination group's folder (if needed)" is NOT checked.
 
-2. Make sure you include AdSupport.framework in your project.
+2. Place #import PushApps/PushApps.h in your AppDelegate.h file. If you need, you can also declare on delegation <PushAppsDelegate>, in order to get notified on push and more events.
 
-3. Place #import PushApps/PushApps.h in your AppDelegate.h file. If you need, you can also declare on delegation <PushAppsDelegate>, in order to get notified on push and more events.
-
-4. In your application didFinishLaunchingWithOptions method inside the AppDelegate, add the following line:
+3. In your application didFinishLaunchingWithOptions method inside the AppDelegate, add the following line:
 
     ```objective-c
     [[PushAppsManager sharedInstance] setDelegate:self]; // optional
     [[PushAppsManager sharedInstance] startPushAppsWithAppToken:@"YOUR_APP_TOKEN" withLaunchOptions:launchOptions];
     ``` 
     
-5. In your AppDelegate, at the end of the file, at the following line:
+4. In your AppDelegate, at the end of the file, at the following line:
     
     ```objective-c
     #pragma push notification
