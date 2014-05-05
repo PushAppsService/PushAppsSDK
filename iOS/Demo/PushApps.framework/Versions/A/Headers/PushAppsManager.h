@@ -8,7 +8,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-typedef void (^fetchComplitionHandlerResualt)(UIBackgroundFetchResult backgroundFetchResualt); // under construction
+typedef void (^fetchComplitionHandlerResualt)(UIBackgroundFetchResult backgroundFetchResualt);
+typedef void(^tagStatus)(BOOL success, NSString *msg);
 
 @class PushAppsManager;
 
@@ -67,8 +68,9 @@ typedef void (^fetchComplitionHandlerResualt)(UIBackgroundFetchResult background
  *
  *  @param eventId an NSString value which serves as an ID to identify a new push notification event.
  *
+ *  @discussion This method is deprecated. It is still valid to be used, but we encourage using the 'Tag' methods.
  */
-- (void)reportEventwithEventId:(NSString *)eventId;
+- (void)reportEventwithEventId:(NSString *)eventId __deprecated_msg("Warrning! depricated method");
 
 /**
  *  A method to Handle a Notification Received while app in foreground
@@ -96,7 +98,109 @@ typedef void (^fetchComplitionHandlerResualt)(UIBackgroundFetchResult background
  *
  *  @discussion Use this method to Handle 'Silent Push'. Method takes care of the fetchComplitionHandlerResualt when it finishes.
  */
-//- (void)handlePushMessageForUserInfo:(NSDictionary *)userInfo WithFetchComplitionHandlerResualt:(fetchComplitionHandlerResualt)fetchComplitionHandlerResualt;
+- (void)handlePushMessageForUserInfo:(NSDictionary *)userInfo WithFetchComplitionHandlerResualt:(fetchComplitionHandlerResualt)fetchComplitionHandlerResualt;
+
+#pragma mark - Tags
+
+- (void)addTags:(NSArray *)tags andOperationStatus:(tagStatus)status;
+
+/**
+ *  Method to tag a device by date
+ *
+ *  @param date an NSDate object to be used a the tag value.
+ *
+ *  @param identifier an NSString object to be used as the identifier, or key for the tag.
+ *
+ *  @discussion Use this method to tag a date that will be added to your web admin console, and will be assigned to a user by it's device identifier.
+ */
+- (void)addTagForDate:(NSDate *)date withIdentifierForTag:(NSString *)identifier andOperationStatus:(tagStatus)status;
+
+/**
+ *  Method to tag a device by date
+ *
+ *  @param dates an NSArray object that holds @{key : value} objects
+ *
+ *  @discussion Use this method to tag dates with identifiers, so that you could easly add more then one tag at a time. The method expects to recive an array of NSDictionary objects. Each NSDictionary object holds one key : value pair.
+ */
+- (void)addTagForDates:(NSArray *)dates andOperationStatus:(tagStatus)status;
+
+/**
+ *  Method to tag a device by string
+ *
+ *  @param strings an NSSting object to be used a the tag value.
+ *
+ *  @param identifier an NSString object to be used as the identifier, or key for the tag.
+ *
+ *  @discussion Use this method to tag a string that will be added to your web admin console, and will be assigned to a user by it's device identifier.
+ */
+- (void)addTagForString:(NSString *)string withIdentifierForTag:(NSString *)identifier andOperationStatus:(tagStatus)status;
+
+/**
+ *  Method to tag a device by string
+ *
+ *  @param strings an NSArray object that holds @{key : value} objects
+ *
+ *  @discussion Use this method to tag strings with identifiers, so that you could easly add more then one tag at a time. The method expects to recive an array of NSDictionary objects. Each NSDictionary object holds one key : value pair.
+ */
+- (void)addTagForStrings:(NSArray *)strings andOperationStatus:(tagStatus)status;
+
+/**
+ *  Method to tag a device by number
+ *
+ *  @param number an NSNumber object to be used a the tag value.
+ *
+ *  @param identifier an NSString object to be used as the identifier, or key for the tag.
+ *
+ *  @discussion Use this method to tag a number that will be added to your web admin console, and will be assigned to a user by it's device identifier.
+ */
+- (void)addTagForNumber:(NSNumber *)number withIdentifierForTag:(NSString *)identifier andOperationStatus:(tagStatus)status;
+
+/**
+ *  Method to tag a device by number
+ *
+ *  @param numbers an NSArray object that holds @{key : value} objects
+ *
+ *  @discussion Use this method to tag numbers with identifiers, so that you could easly add more then one tag at a time. The method expects to recive an array of NSDictionary objects. Each NSDictionary object holds one key : value pair.
+ */
+- (void)addTagForNumbers:(NSArray *)numbers andOperationStatus:(tagStatus)status;
+
+/**
+ *  Method to tag a device by BOOL
+ *
+ *  @param boolean a BOOL primitive to be used a the tag value.
+ *
+ *  @param identifier an NSString object to be used as the identifier, or key for the tag.
+ *
+ *  @discussion Use this method to tag a BOOL that will be added to your web admin console, and will be assigned to a user by it's device identifier.
+ */
+- (void)addTagForBoolean:(BOOL)boolean withIdentifierForTag:(NSString *)identifier andOperationStatus:(tagStatus)status;
+
+/**
+ *  Method to tag a device by BOOL
+ *
+ *  @param booleans an NSArray object that holds @{key : value} objects. BOOLs are to be stored in NSNumber style @(YES).
+ *
+ *  @discussion Use this method to tag BOOLs with identifiers, so that you could easly add more then one tag at a time. The method expects to recive an array of NSDictionary objects. Each NSDictionary object holds one key : value pair.
+ */
+- (void)addTagForBooleans:(NSArray *)booleans andOperationStatus:(tagStatus)status;
+
+/**
+ *  Method to remove a tag for a device by a tag identifier
+ *
+ *  @param tagIdentifier an NSString object to be used as the identifier, or key for the tag.
+ *
+ *  @discussion Use this method to remove a device from being included in a tag with by a tag identifier.
+ */
+- (void)removeTagWithIdentifier:(NSString *)tagIdentifier andOperationStatus:(tagStatus)status;
+
+/**
+ *  Method to remove tags for a device by a tag identifier
+ *
+ *  @param tagIdentifiers an NSArray that contains a list of tag identifiers.
+ *
+ *  @discussion Use this method to remove a device from being included in an array of tags, by a givven identifier.
+ */
+- (void)removeTagsWithIdentifiers:(NSArray *)tagIdentifiers andOperationStatus:(tagStatus)status;
 
 #pragma mark - Helper Methods
 
@@ -133,6 +237,5 @@ typedef void (^fetchComplitionHandlerResualt)(UIBackgroundFetchResult background
  *  @return an NSString containing the app version.
  */
 - (NSString *)getAppVersion;
-
 
 @end

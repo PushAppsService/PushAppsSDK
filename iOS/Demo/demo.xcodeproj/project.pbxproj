@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		480BCE4918C4C97E00F43972 /* PushApps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 480BCE4818C4C97E00F43972 /* PushApps.framework */; };
 		486C04EB1802D2AA00128C47 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 486C04EA1802D2AA00128C47 /* Foundation.framework */; };
 		486C04ED1802D2AA00128C47 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 486C04EC1802D2AA00128C47 /* CoreGraphics.framework */; };
 		486C04EF1802D2AA00128C47 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 486C04EE1802D2AA00128C47 /* UIKit.framework */; };
@@ -22,7 +21,11 @@
 		486C05101802D2AA00128C47 /* demoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 486C050F1802D2AA00128C47 /* demoTests.m */; };
 		486C051F1802D79B00128C47 /* Default~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 486C051E1802D79B00128C47 /* Default~iphone.png */; };
 		486C05211802D89C00128C47 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 486C05201802D89C00128C47 /* Storyboard.storyboard */; };
+		486C05231802DA5A00128C47 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 486C05221802DA5A00128C47 /* AdSupport.framework */; };
+		4890FE36191787180061CEF1 /* PushApps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4890FE35191787180061CEF1 /* PushApps.framework */; };
+		489510311842BA43007A3D30 /* aaa.caf in Resources */ = {isa = PBXBuildFile; fileRef = 489510301842BA43007A3D30 /* aaa.caf */; };
 		48C7A65218040CCD0021C289 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48C7A65118040CCD0021C289 /* MainViewController.m */; };
+		9FC03FEC18A271000088D904 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FC03FEB18A271000088D904 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +39,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		480BCE4818C4C97E00F43972 /* PushApps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PushApps.framework; sourceTree = "<group>"; };
 		486C04E71802D2AA00128C47 /* demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		486C04EA1802D2AA00128C47 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		486C04EC1802D2AA00128C47 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -53,13 +55,17 @@
 		486C050B1802D2AA00128C47 /* demoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "demoTests-Info.plist"; sourceTree = "<group>"; };
 		486C050D1802D2AA00128C47 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		486C050F1802D2AA00128C47 /* demoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = demoTests.m; sourceTree = "<group>"; };
-		486C05191802D57900128C47 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
-		486C051A1802D58B00128C47 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		486C051B1802D5B400128C47 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		486C051E1802D79B00128C47 /* Default~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default~iphone.png"; sourceTree = "<group>"; };
+		486C05191802D57900128C47 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../Icon@2x.png"; sourceTree = "<group>"; };
+		486C051A1802D58B00128C47 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
+		486C051B1802D5B400128C47 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
+		486C051E1802D79B00128C47 /* Default~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default~iphone.png"; path = "../Default~iphone.png"; sourceTree = "<group>"; };
 		486C05201802D89C00128C47 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		486C05221802DA5A00128C47 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		4890FE35191787180061CEF1 /* PushApps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PushApps.framework; sourceTree = "<group>"; };
+		489510301842BA43007A3D30 /* aaa.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = aaa.caf; sourceTree = "<group>"; };
 		48C7A65018040CCD0021C289 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		48C7A65118040CCD0021C289 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		9FC03FEB18A271000088D904 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,9 +73,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				480BCE4918C4C97E00F43972 /* PushApps.framework in Frameworks */,
+				9FC03FEC18A271000088D904 /* CoreLocation.framework in Frameworks */,
+				486C05231802DA5A00128C47 /* AdSupport.framework in Frameworks */,
 				486C04ED1802D2AA00128C47 /* CoreGraphics.framework in Frameworks */,
 				486C04EF1802D2AA00128C47 /* UIKit.framework in Frameworks */,
+				4890FE36191787180061CEF1 /* PushApps.framework in Frameworks */,
 				486C04EB1802D2AA00128C47 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -90,10 +98,6 @@
 		486C04DE1802D2A900128C47 = {
 			isa = PBXGroup;
 			children = (
-				486C051E1802D79B00128C47 /* Default~iphone.png */,
-				486C051B1802D5B400128C47 /* Default-568h@2x.png */,
-				486C051A1802D58B00128C47 /* Default@2x.png */,
-				486C05191802D57900128C47 /* Icon@2x.png */,
 				486C04F01802D2AA00128C47 /* demo */,
 				486C05091802D2AA00128C47 /* demoTests */,
 				486C04E91802D2AA00128C47 /* Frameworks */,
@@ -113,7 +117,9 @@
 		486C04E91802D2AA00128C47 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				480BCE4818C4C97E00F43972 /* PushApps.framework */,
+				4890FE35191787180061CEF1 /* PushApps.framework */,
+				9FC03FEB18A271000088D904 /* CoreLocation.framework */,
+				486C05221802DA5A00128C47 /* AdSupport.framework */,
 				486C04EA1802D2AA00128C47 /* Foundation.framework */,
 				486C04EC1802D2AA00128C47 /* CoreGraphics.framework */,
 				486C04EE1802D2AA00128C47 /* UIKit.framework */,
@@ -125,12 +131,10 @@
 		486C04F01802D2AA00128C47 /* demo */ = {
 			isa = PBXGroup;
 			children = (
+				9F20AFF818715077003FA472 /* ViewControllers */,
+				9F20AFF71871506C003FA472 /* AppDelegate */,
+				9F20AFF618715063003FA472 /* Storyboard */,
 				486C05201802D89C00128C47 /* Storyboard.storyboard */,
-				486C04F91802D2AA00128C47 /* PushAppsDemoAppDelegate.h */,
-				486C04FA1802D2AA00128C47 /* PushAppsDemoAppDelegate.m */,
-				48C7A65018040CCD0021C289 /* MainViewController.h */,
-				48C7A65118040CCD0021C289 /* MainViewController.m */,
-				486C04FC1802D2AA00128C47 /* Images.xcassets */,
 				486C04F11802D2AA00128C47 /* Supporting Files */,
 			);
 			path = demo;
@@ -139,6 +143,8 @@
 		486C04F11802D2AA00128C47 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9F20AFF518715043003FA472 /* Images */,
+				489510301842BA43007A3D30 /* aaa.caf */,
 				486C04F21802D2AA00128C47 /* demo-Info.plist */,
 				486C04F31802D2AA00128C47 /* InfoPlist.strings */,
 				486C04F61802D2AA00128C47 /* main.m */,
@@ -163,6 +169,43 @@
 				486C050C1802D2AA00128C47 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9F20AFF518715043003FA472 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				486C051E1802D79B00128C47 /* Default~iphone.png */,
+				486C051B1802D5B400128C47 /* Default-568h@2x.png */,
+				486C051A1802D58B00128C47 /* Default@2x.png */,
+				486C05191802D57900128C47 /* Icon@2x.png */,
+				486C04FC1802D2AA00128C47 /* Images.xcassets */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		9F20AFF618715063003FA472 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		9F20AFF71871506C003FA472 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				486C04F91802D2AA00128C47 /* PushAppsDemoAppDelegate.h */,
+				486C04FA1802D2AA00128C47 /* PushAppsDemoAppDelegate.m */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		9F20AFF818715077003FA472 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				48C7A65018040CCD0021C289 /* MainViewController.h */,
+				48C7A65118040CCD0021C289 /* MainViewController.m */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,11 +253,16 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = PushAppsDemo;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = PushApps;
 				TargetAttributes = {
 					486C04E61802D2A900128C47 = {
 						DevelopmentTeam = 4T8KK8FUJ8;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					486C05011802D2AA00128C47 = {
 						TestTargetID = 486C04E61802D2A900128C47;
@@ -245,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				486C04F51802D2AA00128C47 /* InfoPlist.strings in Resources */,
+				489510311842BA43007A3D30 /* aaa.caf in Resources */,
 				486C05211802D89C00128C47 /* Storyboard.storyboard in Resources */,
 				486C04FD1802D2AA00128C47 /* Images.xcassets in Resources */,
 				486C051F1802D79B00128C47 /* Default~iphone.png in Resources */,
@@ -314,7 +363,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -327,9 +375,10 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "Apple Development IOS Push Services: com.pushapps.demo";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development IOS Push Services: com.pushapps.demo";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -346,6 +395,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "armv7 armv7s";
 			};
@@ -355,7 +405,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -368,7 +417,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -379,6 +429,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = "";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "armv7 armv7s";
@@ -390,15 +442,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "/Users/asafron2304/Documents/Projects/PushApps/**GITHUB/iOS/Demo";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/PushTech-alxkibioutbfzhclotxvdlqffauh/Build/Products/Debug-iphoneos",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "demo/demo-Prefix.pch";
 				INFOPLIST_FILE = "demo/demo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -408,15 +465,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "/Users/asafron2304/Documents/Projects/PushApps/**GITHUB/iOS/Demo";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/PushTech-alxkibioutbfzhclotxvdlqffauh/Build/Products/Debug-iphoneos",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "demo/demo-Prefix.pch";
 				INFOPLIST_FILE = "demo/demo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -424,7 +487,6 @@
 		486C05171802D2AA00128C47 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/demo.app/demo";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -447,7 +509,6 @@
 		486C05181802D2AA00128C47 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/demo.app/demo";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
