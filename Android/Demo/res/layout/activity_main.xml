@@ -1,158 +1,239 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F6E2BE"
-    android:padding="12dp" >
+    android:background="#F6E2BE" >
 
-    <TableLayout
-        android:id="@+id/message_layout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp" >
-
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/message"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/message"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:maxEms="10"
-                android:textSize="18sp" >
-            </TextView>
-        </TableRow>
-
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/title"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:maxEms="10"
-                android:textSize="18sp" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/custom_json"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/json"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:maxEms="10"
-                android:textSize="18sp" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/sound"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/sound"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:maxEms="10"
-                android:textSize="18sp" />
-        </TableRow>
-    </TableLayout>
-
-    <Button
-        android:id="@+id/clear"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/message_layout"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16sp"
-        android:text="@string/clear"
-        android:textStyle="bold" />
-
-    <View
-        android:id="@+id/center"
-        android:layout_width="0dip"
-        android:layout_height="0dip"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:id="@+id/unregister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginLeft="8dp"
-        android:layout_toRightOf="@id/center"
-        android:gravity="center"
-        android:text="@string/unregister"
-        android:textStyle="bold" />
-
-    <Button
-        android:id="@+id/register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="8dp"
-        android:layout_toLeftOf="@id/center"
-        android:gravity="center"
-        android:text="@string/register"
-        android:textStyle="bold" />
-
-    <EditText
-        android:id="@+id/send_text"
+    <RelativeLayout
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/register"
-        android:layout_marginBottom="16dp"
-        android:layout_marginRight="4dp"
-        android:layout_toLeftOf="@+id/send"
-        android:maxEms="14"
-        android:maxLines="1"
-        android:minEms="6"
-        android:singleLine="true" />
+        android:padding="12dp" >
 
-    <Button
-        android:id="@+id/send"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/register"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="16dp"
-        android:text="@string/send_event"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/last_notification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/last_notification"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
-</RelativeLayout>
+        <TableLayout
+            android:id="@+id/message_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/last_notification"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp" >
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/message"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:maxEms="10"
+                    android:textSize="18sp" >
+                </TextView>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:maxEms="10"
+                    android:textSize="18sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/custom_json"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/json"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:maxEms="10"
+                    android:textSize="18sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sound"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/sound"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:maxEms="10"
+                    android:textSize="18sp" />
+            </TableRow>
+        </TableLayout>
+
+        <Button
+            android:id="@+id/clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/message_layout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10sp"
+            android:text="@string/clear"
+            android:textStyle="bold" />
+
+        <View
+            android:id="@+id/center"
+            android:layout_width="0dip"
+            android:layout_height="0dip"
+            android:layout_centerHorizontal="true" />
+
+        <EditText
+            android:id="@+id/tag_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/clear"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="16dp"
+            android:hint="Please Enter Tag Name"
+            android:maxEms="14"
+            android:maxLines="1"
+            android:minEms="6"
+            android:singleLine="true" />
+
+        <Button
+            android:id="@+id/remove_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tag_name"
+            android:text="Remove The Tag"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/send_boolean"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/remove_tag"
+            android:layout_marginBottom="16dp"
+            android:layout_toLeftOf="@+id/send_date"
+            android:text="Send Boolean Tag"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/send_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/remove_tag"
+            android:layout_marginBottom="16dp"
+            android:text="Send Date Tag"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/send_int"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/send_int_btn"
+            android:layout_marginRight="4dp"
+            android:layout_toLeftOf="@+id/send_int_btn"
+            android:digits="0123456789"
+            android:inputType="number"
+            android:maxEms="14"
+            android:maxLines="1"
+            android:minEms="6"
+            android:singleLine="true" />
+
+        <Button
+            android:id="@+id/send_int_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/send_date"
+            android:layout_marginBottom="16dp"
+            android:text="Send Int"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/send_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/send"
+            android:layout_marginRight="4dp"
+            android:layout_toLeftOf="@+id/send"
+            android:maxEms="14"
+            android:maxLines="1"
+            android:minEms="6"
+            android:singleLine="true" />
+
+        <Button
+            android:id="@+id/send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/send_int"
+            android:layout_marginBottom="16dp"
+            android:text="@string/send_event"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/unregister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/send"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@id/center"
+            android:gravity="center"
+            android:text="@string/unregister"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@id/send"
+            android:layout_marginRight="8dp"
+            android:layout_toLeftOf="@id/center"
+            android:gravity="center"
+            android:text="@string/register"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+</ScrollView>

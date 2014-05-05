@@ -11,6 +11,7 @@
 	<string name="link">Link</string>
 	<string name="custom_json">Custom Json</string>
 	<string name="sound">Sound</string>
-	<string name="send_event">Send Event</string>
+	<string name="send_event">Send String Tag</string>
 	<string name="clear">Clear Message</string>
+	<string name="last_notification"><u>Last Notification</u></string>
 </resources>
