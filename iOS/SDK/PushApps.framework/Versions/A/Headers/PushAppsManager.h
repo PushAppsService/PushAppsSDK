@@ -89,16 +89,16 @@ typedef void(^tagStatus)(BOOL success, NSString *msg);
  */
 - (void)updateNotificationReadStatus:(NSDictionary *)options;
 
-/**
- *  Method to handle 'Silent Push'
- *
- *  @param userInfo an NSDictionary object that holds the NSRemoteNotification data.
- *
- *  @param fetchComplitionHandlerResualt a Block of Code that represents a complition handler for UIBackgroundFetchResult.
- *
- *  @discussion Use this method to Handle 'Silent Push'. Method takes care of the fetchComplitionHandlerResualt when it finishes.
- */
-- (void)handlePushMessageForUserInfo:(NSDictionary *)userInfo WithFetchComplitionHandlerResualt:(fetchComplitionHandlerResualt)fetchComplitionHandlerResualt;
+///**
+// *  Method to handle 'Silent Push'
+// *
+// *  @param userInfo an NSDictionary object that holds the NSRemoteNotification data.
+// *
+// *  @param fetchComplitionHandlerResualt a Block of Code that represents a complition handler for UIBackgroundFetchResult.
+// *
+// *  @discussion Use this method to Handle 'Silent Push'. Method takes care of the fetchComplitionHandlerResualt when it finishes.
+// */
+//- (void)handlePushMessageForUserInfo:(NSDictionary *)userInfo WithFetchComplitionHandlerResualt:(fetchComplitionHandlerResualt)fetchComplitionHandlerResualt;
 
 #pragma mark - Tags
 
