@@ -18,5 +18,3 @@ iOS
 ===
 Please refer to [our iOS guides](https://wiki.pushapps.mobi/display/PUSHAPPS/iOS?utm_source=pushapps_github)
     
-    
-    [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/PushAppsService/pushappssdk/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
