@@ -25,7 +25,6 @@
 		4890FE36191787180061CEF1 /* PushApps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4890FE35191787180061CEF1 /* PushApps.framework */; };
 		489510311842BA43007A3D30 /* aaa.caf in Resources */ = {isa = PBXBuildFile; fileRef = 489510301842BA43007A3D30 /* aaa.caf */; };
 		48C7A65218040CCD0021C289 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48C7A65118040CCD0021C289 /* MainViewController.m */; };
-		9FC03FEC18A271000088D904 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FC03FEB18A271000088D904 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,7 +64,6 @@
 		489510301842BA43007A3D30 /* aaa.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = aaa.caf; sourceTree = "<group>"; };
 		48C7A65018040CCD0021C289 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		48C7A65118040CCD0021C289 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		9FC03FEB18A271000088D904 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +71,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9FC03FEC18A271000088D904 /* CoreLocation.framework in Frameworks */,
 				486C05231802DA5A00128C47 /* AdSupport.framework in Frameworks */,
 				486C04ED1802D2AA00128C47 /* CoreGraphics.framework in Frameworks */,
 				486C04EF1802D2AA00128C47 /* UIKit.framework in Frameworks */,
@@ -118,7 +115,6 @@
 			isa = PBXGroup;
 			children = (
 				4890FE35191787180061CEF1 /* PushApps.framework */,
-				9FC03FEB18A271000088D904 /* CoreLocation.framework */,
 				486C05221802DA5A00128C47 /* AdSupport.framework */,
 				486C04EA1802D2AA00128C47 /* Foundation.framework */,
 				486C04EC1802D2AA00128C47 /* CoreGraphics.framework */,
@@ -451,7 +447,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "demo/demo-Prefix.pch";
 				INFOPLIST_FILE = "demo/demo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -475,7 +471,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "demo/demo-Prefix.pch";
 				INFOPLIST_FILE = "demo/demo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

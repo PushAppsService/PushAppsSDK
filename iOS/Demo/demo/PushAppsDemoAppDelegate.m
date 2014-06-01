@@ -74,8 +74,8 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
     
-    [[PushAppsManager sharedInstance] handlePushMessageForUserInfo:userInfo
-                                 WithFetchComplitionHandlerResualt:completionHandler];
+//    [[PushAppsManager sharedInstance] handlePushMessageForUserInfo:userInfo
+//                                 WithFetchComplitionHandlerResualt:completionHandler];
 }
 
 #pragma mark - Push Notifications

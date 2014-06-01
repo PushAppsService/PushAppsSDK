@@ -5,36 +5,41 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>E5E19351-69CC-4410-BBF9-C5E1EF7799F9</string>
+	<string>8CE90878-B3D4-4048-BB42-61B9D69559EC</string>
 	<key>IDESourceControlProjectName</key>
 	<string>demo</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>8BA3A7DF-9ACB-4426-8887-35730FC2BF9F</key>
-		<string>https://github.com/PushAppsService/PushAppsSDK.git</string>
+		<key>496706EA-064A-4A75-AB1C-9289A861840A</key>
+		<string>https://groboot.unfuddle.com/svn/groboot_pushappsiosdemo</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>iOS/Demo/demo.xcodeproj/project.xcworkspace</string>
+	<string>demo/demo.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>8BA3A7DF-9ACB-4426-8887-35730FC2BF9F</key>
-		<string>../../../..</string>
+		<key>496706EA-064A-4A75-AB1C-9289A861840A</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectRepositoryRootDictionary</key>
+	<dict>
+		<key>496706EA-064A-4A75-AB1C-9289A861840A</key>
+		<string>https://groboot.unfuddle.com/svn/groboot_pushappsiosdemo</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/PushAppsService/PushAppsSDK.git</string>
+	<string>https://groboot.unfuddle.com/svn/groboot_pushappsiosdemo/demo/demo.xcodeproj</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>8BA3A7DF-9ACB-4426-8887-35730FC2BF9F</string>
+	<string>496706EA-064A-4A75-AB1C-9289A861840A</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
+			<string>public.vcs.subversion</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>8BA3A7DF-9ACB-4426-8887-35730FC2BF9F</string>
+			<string>496706EA-064A-4A75-AB1C-9289A861840A</string>
 			<key>IDESourceControlWCCName</key>
-			<string>**GITHUB</string>
+			<string>groboot_pushappsiosdemo</string>
 		</dict>
 	</array>
 </dict>
