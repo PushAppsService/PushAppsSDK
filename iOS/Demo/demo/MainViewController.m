@@ -92,7 +92,7 @@ typedef enum : NSInteger {
 // unregisters this device from push notifications.
 - (IBAction)unregisterNotifications:(id)sender
 {
-    [[PushAppsManager sharedInstance] unregisterFromPushNotificationsByDeviceId:[[PushAppsManager sharedInstance] getDeviceId]];
+    [[PushAppsManager sharedInstance] unregisterFromPushNotificationsByDeviceId];
     [self updateTextView:[NSString stringWithFormat:@"unregistered device:%@", [[PushAppsManager sharedInstance] getDeviceId]]];
 }
 

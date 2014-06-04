@@ -21,6 +21,9 @@ typedef void(^tagStatus)(BOOL success, NSString *msg);
 @optional
 - (void)pushApps:(PushAppsManager *)manager didUpdateUserToken:(NSString *)pushToken;
 
+@optional
+- (void)pushApps:(PushAppsManager *)manager registrationForRemoteNotificationFailedWithError:(NSError *)error;
+
 @end
 
 @interface PushAppsManager : NSObject
@@ -56,12 +59,18 @@ typedef void(^tagStatus)(BOOL success, NSString *msg);
 - (void)updatePushToken:(NSData *)data;
 
 /**
- *  A method to unregister a device by it's device ID (UDID).
+ *  A method to keep PushApps updated with Push Notification Errors.
  *
- *  @param deviceID an NSString containing the device UDID uniqu identifier.
+ *  @param error an NSError object which represents an Error.
  *
  */
-- (void)unregisterFromPushNotificationsByDeviceId:(NSString *)deviceID;
+- (void)updatePushError:(NSError *)error;
+
+/**
+ *  A method to unregister a device by it's device ID (UDID).
+ *
+ */
+- (void)unregisterFromPushNotificationsByDeviceId;
 
 /**
  *  A method to report a new push notification event.
@@ -203,6 +212,15 @@ typedef void(^tagStatus)(BOOL success, NSString *msg);
 - (void)removeTagsWithIdentifiers:(NSArray *)tagIdentifiers andOperationStatus:(tagStatus)status;
 
 #pragma mark - Helper Methods
+
+/**
+ *  A method to know if push notifications status is enabled.
+ *
+ *  @return a BOOL value indicating the status.
+ *
+ *  @discussion function returns NO when ever the user did not approve any notification. i.e. if user approve only UIRemoteNotificationTypeSound, function will return YES
+ */
+- (BOOL)arePushNotificationsEnabled;
 
 /**
  *  A method to clear all application badges.
