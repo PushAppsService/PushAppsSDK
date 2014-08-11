@@ -51,6 +51,15 @@ typedef void(^tagStatus)(BOOL success, NSString *msg);
 - (void)startPushAppsWithAppToken:(NSString *)appToken withLaunchOptions:(NSDictionary *)launchOptions;
 
 /**
+ *  A method to identify an application with PushApps. Method is critical since it starts the registration to Push Notification message services.
+ *
+ *  @param appToken an NSString "hard coded" token retrived from PushApps web site, under "My Apps", "setting". each app token is a unique token, designated to be used in a single application.
+ *  @param launchOptions An NSDictionary object passed as a parameter with in the delegate method application:didFinishLaunchingWithOptions.
+ *  @param customId An NSString object passed as a parameter for unuiquly identifying a device.
+ */
+- (void)startPushAppsWithAppToken:(NSString *)appToken withLaunchOptions:(NSDictionary *)launchOptions andCustomId:(NSString *)customId;
+
+/**
  *  A method to finalize the registration to PushApps. Method is critical since it provides the device ID.
  *
  *  @param data an NSData object which encapsulates device data.
@@ -255,5 +264,12 @@ typedef void(^tagStatus)(BOOL success, NSString *msg);
  *  @return an NSString containing the app version.
  */
 - (NSString *)getAppVersion;
+
+/**
+ *  Method to retrive the custom ID of the device, as identified by the developer. note! this is not the UDID of the device.
+ *
+ *  @return an NSString custom ID which the developer inputed in the registration process.
+ */
+- (NSString *)getCustomId;
 
 @end
