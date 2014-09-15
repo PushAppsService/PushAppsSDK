@@ -24,6 +24,9 @@ typedef void(^tagStatus)(BOOL success, NSString *msg);
 @optional
 - (void)pushApps:(PushAppsManager *)manager registrationForRemoteNotificationFailedWithError:(NSError *)error;
 
+@optional
+- (void)pushApps:(PushAppsManager *)manager handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo completionHandler:(void (^)())completionHandler;
+
 @end
 
 @interface PushAppsManager : NSObject
@@ -108,6 +111,26 @@ typedef void(^tagStatus)(BOOL success, NSString *msg);
 - (void)updateNotificationReadStatus:(NSDictionary *)options;
 
 /**
+ *
+ *
+ *   TODO:
+ *
+ *
+ *
+ */
+- (void)didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationsSettings;
+
+/**
+ *
+ *
+ *   TODO:
+ *
+ *
+ *
+ */
+- (void)handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo completionHandler:(void (^)())completionHandler;
+
+/**
  *  Method to handle 'Silent Push'
  *
  *  @param userInfo an NSDictionary object that holds the NSRemoteNotification data.
@@ -117,6 +140,24 @@ typedef void(^tagStatus)(BOOL success, NSString *msg);
  *  @discussion Use this method to Handle 'Silent Push'. Method takes care of the fetchComplitionHandlerResualt when it finishes.
  */
 //- (void)handlePushMessageForUserInfo:(NSDictionary *)userInfo WithFetchComplitionHandlerResualt:(fetchComplitionHandlerResualt)fetchComplitionHandlerResualt;
+
+#pragma mark - Handle action buttons
+
+/**
+ *
+ * TODO
+ *
+ *
+ */
+- (UIMutableUserNotificationAction *)createUserNotificationActionWithIdentifier:(NSString *)identifier title:(NSString *)title activationMode:(UIUserNotificationActivationMode)activationMode isDestructive:(BOOL)destructive isAuthenticationRequired:(BOOL)authenticationRequired;
+
+/**
+ *
+ * TODO
+ *
+ *
+ */
+- (void)addUserNotificationCategoryWithIdentifier:(NSString *)identifier actionsForDefaultContext:(NSArray *)actionsDefault andActionsForMinimalContext:(NSArray *)actionsMinimal;
 
 #pragma mark - Tags
 
@@ -219,6 +260,10 @@ typedef void(^tagStatus)(BOOL success, NSString *msg);
  *  @discussion Use this method to remove a device from being included in an array of tags, by a givven identifier.
  */
 - (void)removeTagsWithIdentifiers:(NSArray *)tagIdentifiers andOperationStatus:(tagStatus)status;
+
+#pragma mark - Location
+
+//- (void)startCollectingGeoData;
 
 #pragma mark - Helper Methods
 
