@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 PushApps. All rights reserved.
 //
 
+#define APP_TOKEN @"REPLACE_WITH_YOUR_APP_TOKEN"
+
 #import "PushAppsDemoAppDelegate.h"
 
 @implementation PushAppsDemoAppDelegate
@@ -19,8 +21,8 @@
     // 2.
     // register to PushApps & handle a remote notification.
 
-    [[PushAppsManager sharedInstance] startPushAppsWithAppToken:@"YOUR_APP_TOKEN_KEY" withLaunchOptions:launchOptions];
-
+    [[PushAppsManager sharedInstance] startPushAppsWithAppToken:APP_TOKEN withLaunchOptions:launchOptions];
+    
     // 3.
     // UI / display oriented action.
     if ([launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey]) {
@@ -31,6 +33,8 @@
     }
     
     NSLog(@"App version: %@", [[PushAppsManager sharedInstance] getAppVersion]);
+    NSLog(@"Device ID: %@", [[PushAppsManager sharedInstance] getDeviceId]);
+    NSLog(@"SDK version: %@", [[PushAppsManager sharedInstance] getSDKVersion]);
     
     // 4.
     // customizing colors of navigation bar.
@@ -38,7 +42,6 @@
     
     return YES;
 }
-
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
@@ -71,14 +74,19 @@
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
+#pragma mark - Push Notifications
+
+#ifdef __IPHONE_8_0
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings
 {
-    
-//    [[PushAppsManager sharedInstance] handlePushMessageForUserInfo:userInfo
-//                                 WithFetchComplitionHandlerResualt:completionHandler];
+    [[PushAppsManager sharedInstance] didRegisterUserNotificationSettings:notificationSettings];
 }
 
-#pragma mark - Push Notifications
+- (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo completionHandler:(void(^)())completionHandler
+{
+    [[PushAppsManager sharedInstance] handleActionWithIdentifier:identifier forRemoteNotification:userInfo completionHandler:completionHandler];
+}
+#endif
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
@@ -88,7 +96,7 @@
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
 {
-    
+    [[PushAppsManager sharedInstance] updatePushError:error];
 }
 
 // gets called when a remote notification is recieved while app is in the foreground.
@@ -107,6 +115,14 @@
 - (void)pushApps:(PushAppsManager *)manager didUpdateUserToken:(NSString *)pushToken
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"newData" object:[NSString stringWithFormat:@"This is your push notification token = %@", pushToken]];
+}
+
+- (void)pushApps:(PushAppsManager *)manager handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo completionHandler:(void (^)())completionHandler
+{
+    NSLog(@"Got an action with identifier: %@", identifier);
+    NSLog(@"Action dictionary: %@", userInfo);
+    
+    completionHandler();
 }
 
 #pragma mark - Customization

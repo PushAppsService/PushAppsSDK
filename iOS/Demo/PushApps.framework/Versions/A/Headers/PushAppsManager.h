@@ -24,6 +24,9 @@ typedef void(^tagStatus)(BOOL success, NSString *msg);
 @optional
 - (void)pushApps:(PushAppsManager *)manager registrationForRemoteNotificationFailedWithError:(NSError *)error;
 
+@optional
+- (void)pushApps:(PushAppsManager *)manager handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo completionHandler:(void (^)())completionHandler;
+
 @end
 
 @interface PushAppsManager : NSObject
@@ -108,6 +111,24 @@ typedef void(^tagStatus)(BOOL success, NSString *msg);
 - (void)updateNotificationReadStatus:(NSDictionary *)options;
 
 /**
+ *  A method to keep PushApps updated with Push Notification settings.
+ *
+ *  @param notificationsSettings an UIUserNotificationSettings object that holds the user settings for push notifications
+ *
+ */
+- (void)didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationsSettings;
+
+/**
+ *  A method to keep PushApps updated with the actions taken from Push Notification.
+ *
+ *  @param identifier an NSString object that the action identifier
+ *  @param userInfo an NSDictionary object that holds the user info
+ *  @param completionHandler an (void (^)()) callback to execute after this action was taken
+ *
+ */
+- (void)handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo completionHandler:(void (^)())completionHandler;
+
+/**
  *  Method to handle 'Silent Push'
  *
  *  @param userInfo an NSDictionary object that holds the NSRemoteNotification data.
@@ -117,6 +138,32 @@ typedef void(^tagStatus)(BOOL success, NSString *msg);
  *  @discussion Use this method to Handle 'Silent Push'. Method takes care of the fetchComplitionHandlerResualt when it finishes.
  */
 //- (void)handlePushMessageForUserInfo:(NSDictionary *)userInfo WithFetchComplitionHandlerResualt:(fetchComplitionHandlerResualt)fetchComplitionHandlerResualt;
+
+#pragma mark - Handle action buttons
+
+/**
+ *  Method to easily create a User Notification Action
+ *
+ *  @param identifier a NSString object which identify the action
+ *  @param title a NSString object which will appear on the button
+ *  @param activationMode a UIUserNotificationActivationMode enum which states if the action execution will be taken in the foreground or background
+ *  @param destructive a BOOL which state if the button will be with destructive look
+ *  @param authenticationRequired a BOOL which declare if the user need to enter the device pass code
+ *
+ *  @discussion Use this method to easily create a new action. After creating a new action, you will need to call the "addUserNotificationCategoryWithIdentifier" method to add this category to the user settings.
+ */
+- (UIMutableUserNotificationAction *)createUserNotificationActionWithIdentifier:(NSString *)identifier title:(NSString *)title activationMode:(UIUserNotificationActivationMode)activationMode isDestructive:(BOOL)destructive isAuthenticationRequired:(BOOL)authenticationRequired;
+
+/**
+ *  Method to easily add a User Notification Category
+ *
+ *  @param identifier a NSString object which identify the category. This must match the category name, sent in the remote push notification.
+ *  @param actionsDefault a NSArray with UIMutableUserNotificationAction objects, which will appear in the default context. This array can have up to 4 actions and will apply only for alert style push notification.
+ *  @param actionsMinimal a NSArray with UIMutableUserNotificationAction objects, which will appear in the minimal context. This array can have up to 2 actions.
+ *
+ *  @discussion Use this method to easily add a User Notification Category. After adding a new category, an automatic registration for push notification is being made.
+ */
+- (void)addUserNotificationCategoryWithIdentifier:(NSString *)identifier actionsForDefaultContext:(NSArray *)actionsDefault andActionsForMinimalContext:(NSArray *)actionsMinimal;
 
 #pragma mark - Tags
 
@@ -219,6 +266,10 @@ typedef void(^tagStatus)(BOOL success, NSString *msg);
  *  @discussion Use this method to remove a device from being included in an array of tags, by a givven identifier.
  */
 - (void)removeTagsWithIdentifiers:(NSArray *)tagIdentifiers andOperationStatus:(tagStatus)status;
+
+#pragma mark - Location
+
+//- (void)startCollectingGeoData;
 
 #pragma mark - Helper Methods
 

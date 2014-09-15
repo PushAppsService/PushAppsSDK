@@ -14,16 +14,14 @@
 		486C04F71802D2AA00128C47 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 486C04F61802D2AA00128C47 /* main.m */; };
 		486C04FB1802D2AA00128C47 /* PushAppsDemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 486C04FA1802D2AA00128C47 /* PushAppsDemoAppDelegate.m */; };
 		486C04FD1802D2AA00128C47 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 486C04FC1802D2AA00128C47 /* Images.xcassets */; };
-		486C05041802D2AA00128C47 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 486C05031802D2AA00128C47 /* XCTest.framework */; };
 		486C05051802D2AA00128C47 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 486C04EA1802D2AA00128C47 /* Foundation.framework */; };
 		486C05061802D2AA00128C47 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 486C04EE1802D2AA00128C47 /* UIKit.framework */; };
 		486C050E1802D2AA00128C47 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 486C050C1802D2AA00128C47 /* InfoPlist.strings */; };
 		486C05101802D2AA00128C47 /* demoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 486C050F1802D2AA00128C47 /* demoTests.m */; };
 		486C051F1802D79B00128C47 /* Default~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 486C051E1802D79B00128C47 /* Default~iphone.png */; };
 		486C05211802D89C00128C47 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 486C05201802D89C00128C47 /* Storyboard.storyboard */; };
-		486C05231802DA5A00128C47 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 486C05221802DA5A00128C47 /* AdSupport.framework */; };
-		4890FE36191787180061CEF1 /* PushApps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4890FE35191787180061CEF1 /* PushApps.framework */; };
 		489510311842BA43007A3D30 /* aaa.caf in Resources */ = {isa = PBXBuildFile; fileRef = 489510301842BA43007A3D30 /* aaa.caf */; };
+		48A1D12419C08B3A008C3038 /* PushApps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A1D12319C08B3A008C3038 /* PushApps.framework */; };
 		48C7A65218040CCD0021C289 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48C7A65118040CCD0021C289 /* MainViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -38,7 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		486C04E71802D2AA00128C47 /* demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		486C04E71802D2AA00128C47 /* test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		486C04EA1802D2AA00128C47 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		486C04EC1802D2AA00128C47 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		486C04EE1802D2AA00128C47 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -50,7 +48,6 @@
 		486C04FA1802D2AA00128C47 /* PushAppsDemoAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PushAppsDemoAppDelegate.m; sourceTree = "<group>"; };
 		486C04FC1802D2AA00128C47 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		486C05021802D2AA00128C47 /* demoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = demoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		486C05031802D2AA00128C47 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		486C050B1802D2AA00128C47 /* demoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "demoTests-Info.plist"; sourceTree = "<group>"; };
 		486C050D1802D2AA00128C47 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		486C050F1802D2AA00128C47 /* demoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = demoTests.m; sourceTree = "<group>"; };
@@ -59,9 +56,8 @@
 		486C051B1802D5B400128C47 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		486C051E1802D79B00128C47 /* Default~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default~iphone.png"; path = "../Default~iphone.png"; sourceTree = "<group>"; };
 		486C05201802D89C00128C47 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
-		486C05221802DA5A00128C47 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
-		4890FE35191787180061CEF1 /* PushApps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PushApps.framework; sourceTree = "<group>"; };
 		489510301842BA43007A3D30 /* aaa.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = aaa.caf; sourceTree = "<group>"; };
+		48A1D12319C08B3A008C3038 /* PushApps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PushApps.framework; sourceTree = "<group>"; };
 		48C7A65018040CCD0021C289 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		48C7A65118040CCD0021C289 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,10 +67,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				486C05231802DA5A00128C47 /* AdSupport.framework in Frameworks */,
 				486C04ED1802D2AA00128C47 /* CoreGraphics.framework in Frameworks */,
 				486C04EF1802D2AA00128C47 /* UIKit.framework in Frameworks */,
-				4890FE36191787180061CEF1 /* PushApps.framework in Frameworks */,
+				48A1D12419C08B3A008C3038 /* PushApps.framework in Frameworks */,
 				486C04EB1802D2AA00128C47 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -83,7 +78,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				486C05041802D2AA00128C47 /* XCTest.framework in Frameworks */,
 				486C05061802D2AA00128C47 /* UIKit.framework in Frameworks */,
 				486C05051802D2AA00128C47 /* Foundation.framework in Frameworks */,
 			);
@@ -105,7 +99,7 @@
 		486C04E81802D2AA00128C47 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				486C04E71802D2AA00128C47 /* demo.app */,
+				486C04E71802D2AA00128C47 /* test.app */,
 				486C05021802D2AA00128C47 /* demoTests.xctest */,
 			);
 			name = Products;
@@ -114,12 +108,10 @@
 		486C04E91802D2AA00128C47 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4890FE35191787180061CEF1 /* PushApps.framework */,
-				486C05221802DA5A00128C47 /* AdSupport.framework */,
+				48A1D12319C08B3A008C3038 /* PushApps.framework */,
 				486C04EA1802D2AA00128C47 /* Foundation.framework */,
 				486C04EC1802D2AA00128C47 /* CoreGraphics.framework */,
 				486C04EE1802D2AA00128C47 /* UIKit.framework */,
-				486C05031802D2AA00128C47 /* XCTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -207,9 +199,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		486C04E61802D2A900128C47 /* demo */ = {
+		486C04E61802D2A900128C47 /* test */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 486C05131802D2AA00128C47 /* Build configuration list for PBXNativeTarget "demo" */;
+			buildConfigurationList = 486C05131802D2AA00128C47 /* Build configuration list for PBXNativeTarget "test" */;
 			buildPhases = (
 				486C04E31802D2A900128C47 /* Sources */,
 				486C04E41802D2A900128C47 /* Frameworks */,
@@ -219,9 +211,9 @@
 			);
 			dependencies = (
 			);
-			name = demo;
+			name = test;
 			productName = demo;
-			productReference = 486C04E71802D2AA00128C47 /* demo.app */;
+			productReference = 486C04E71802D2AA00128C47 /* test.app */;
 			productType = "com.apple.product-type.application";
 		};
 		486C05011802D2AA00128C47 /* demoTests */ = {
@@ -253,7 +245,7 @@
 				ORGANIZATIONNAME = PushApps;
 				TargetAttributes = {
 					486C04E61802D2A900128C47 = {
-						DevelopmentTeam = 4T8KK8FUJ8;
+						DevelopmentTeam = 764EYA85TC;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -277,7 +269,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				486C04E61802D2A900128C47 /* demo */,
+				486C04E61802D2A900128C47 /* test */,
 				486C05011802D2AA00128C47 /* demoTests */,
 			);
 		};
@@ -330,7 +322,7 @@
 /* Begin PBXTargetDependency section */
 		486C05081802D2AA00128C47 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 486C04E61802D2A900128C47 /* demo */;
+			target = 486C04E61802D2A900128C47 /* test */;
 			targetProxy = 486C05071802D2AA00128C47 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -438,19 +430,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/PushTech-alxkibioutbfzhclotxvdlqffauh/Build/Products/Debug-iphoneos",
-					"$(PROJECT_DIR)",
-				);
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "demo/demo-Prefix.pch";
 				INFOPLIST_FILE = "demo/demo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "39fe051c-bf4d-4c91-8651-9550c85f0e96";
 				VALID_ARCHS = "arm64 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
@@ -461,20 +450,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/PushTech-alxkibioutbfzhclotxvdlqffauh/Build/Products/Debug-iphoneos",
-					"$(PROJECT_DIR)",
-				);
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "demo/demo-Prefix.pch";
 				INFOPLIST_FILE = "demo/demo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "39fe051c-bf4d-4c91-8651-9550c85f0e96";
 				VALID_ARCHS = "arm64 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
@@ -532,7 +518,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		486C05131802D2AA00128C47 /* Build configuration list for PBXNativeTarget "demo" */ = {
+		486C05131802D2AA00128C47 /* Build configuration list for PBXNativeTarget "test" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				486C05141802D2AA00128C47 /* Debug */,
