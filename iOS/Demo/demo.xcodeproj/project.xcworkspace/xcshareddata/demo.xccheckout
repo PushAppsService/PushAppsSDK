@@ -12,27 +12,34 @@
 	<dict>
 		<key>496706EA-064A-4A75-AB1C-9289A861840A</key>
 		<string>https://groboot.unfuddle.com/svn/groboot_pushappsiosdemo</string>
+		<key>C0D0FD94378133E9CB92421BAB6BCB0E8B48B15E</key>
+		<string>https://github.com/PushAppsService/PushAppsSDK.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>demo/demo.xcodeproj/project.xcworkspace</string>
+	<string>iOS/Demo/demo.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>496706EA-064A-4A75-AB1C-9289A861840A</key>
-		<string>../../..</string>
-	</dict>
-	<key>IDESourceControlProjectRepositoryRootDictionary</key>
-	<dict>
-		<key>496706EA-064A-4A75-AB1C-9289A861840A</key>
-		<string>https://groboot.unfuddle.com/svn/groboot_pushappsiosdemo</string>
+		<string>../../../../../groboot_pushappsiosdemo</string>
+		<key>C0D0FD94378133E9CB92421BAB6BCB0E8B48B15E</key>
+		<string>../../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://groboot.unfuddle.com/svn/groboot_pushappsiosdemo/demo/demo.xcodeproj</string>
+	<string>https://github.com/PushAppsService/PushAppsSDK.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>496706EA-064A-4A75-AB1C-9289A861840A</string>
+	<string>C0D0FD94378133E9CB92421BAB6BCB0E8B48B15E</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C0D0FD94378133E9CB92421BAB6BCB0E8B48B15E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>**GITHUB</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.subversion</string>
