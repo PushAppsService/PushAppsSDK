@@ -13,14 +13,14 @@ import com.groboot.pushapps.PushAppsRegistrationInterface;
 import com.groboot.pushapps.PushManager;
 
 public class DemoApplication extends Application {
-	public static final String GOOGLE_API_PROJECT_NUMBER = ""; // your
+	public static final String GOOGLE_API_PROJECT_NUMBER = "212wdsc3d";//"449866648164"; // your
 																		// sender
 																		// id
 																		// (google
 																		// API
 																		// project
 																		// id)
-	public static final String PUSHAPPS_APP_TOKEN = ""; // your
+	public static final String PUSHAPPS_APP_TOKEN = "1a3267ab-aa11-4bb2-8dda-034b3a6566ee"; // your
 																							// application
 																							// token
 																							// from
