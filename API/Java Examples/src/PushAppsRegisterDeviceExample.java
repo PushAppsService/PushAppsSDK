@@ -33,10 +33,8 @@ public class PushAppsRegisterDeviceExample {
 				"https://ws.pushapps.mobi/RemoteAPI/RegisterDevice");
 		try {
 			JSONObject data = new JSONObject();
-			data.put("apiKey", apiSecretToken);
 			data.put("params", params);
 			String json = params.toJSONString();
-			// Create HTTP request to GreenInvoice API
 			HttpClient httpClient = new HttpClient();
 			StringRequestEntity requestEntity = new StringRequestEntity(
 				    json, //content
