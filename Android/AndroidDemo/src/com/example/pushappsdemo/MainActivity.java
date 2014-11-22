@@ -24,6 +24,7 @@ import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.pushappsdemo.dev.R;
 import com.groboot.pushapps.PushManager;
 import com.groboot.pushapps.SendTagResponseListener;
 import com.groboot.pushapps.Tag;
