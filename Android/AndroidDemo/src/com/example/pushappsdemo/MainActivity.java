@@ -3,6 +3,7 @@ package com.example.pushappsdemo;
 import java.util.Calendar;
 import java.util.Date;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
@@ -24,10 +25,10 @@ import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.pushappsdemo.dev.R;
 import com.groboot.pushapps.PushManager;
 import com.groboot.pushapps.SendTagResponseListener;
 import com.groboot.pushapps.Tag;
+import com.groboot.pushapps.customnotifications.CustomNotificationBuilder;
 
 public class MainActivity extends Activity implements SendTagResponseListener {
 
@@ -42,7 +43,9 @@ public class MainActivity extends Activity implements SendTagResponseListener {
 	EditText intTag, tagName;
 	Button removeTag;
 
-	private void handleMessage(Bundle bundle) {
+	private void handleMessage(Intent intent) {
+		Bundle bundle = intent.getExtras();
+
 		clear();
 		messageLayout.setVisibility(View.VISIBLE);
 		clear.setVisibility(View.VISIBLE);
@@ -50,25 +53,64 @@ public class MainActivity extends Activity implements SendTagResponseListener {
 		if (bundle.containsKey(PushManager.NOTIFICATION_TITLE_KEY)) {
 			title.setText(bundle.getString(PushManager.NOTIFICATION_TITLE_KEY));
 			// for the demo purpose we store the title
-			sharedPrefs.edit().putString("title", bundle.getString(PushManager.NOTIFICATION_TITLE_KEY)).commit();
+			sharedPrefs
+					.edit()
+					.putString(
+							"title",
+							bundle.getString(PushManager.NOTIFICATION_TITLE_KEY))
+					.commit();
 		}
 		if (bundle.containsKey(PushManager.NOTIFICATION_MESSAGE_KEY)) {
-			message.setText(bundle.getString(PushManager.NOTIFICATION_MESSAGE_KEY));
+			message.setText(bundle
+					.getString(PushManager.NOTIFICATION_MESSAGE_KEY));
 			// for the demo purpose we store the message
-			sharedPrefs.edit().putString("message", bundle.getString(PushManager.NOTIFICATION_MESSAGE_KEY)).commit();
+			sharedPrefs
+					.edit()
+					.putString(
+							"message",
+							bundle.getString(PushManager.NOTIFICATION_MESSAGE_KEY))
+					.commit();
 		}
-		if (bundle.containsKey(PushManager.EXTRA_DATA)) {
-			json.setText(PushManager.EXTRA_DATA + ": " + bundle.getString(PushManager.EXTRA_DATA));
+		if (bundle.containsKey(CustomNotificationBuilder.TEMPLATE)) {
+			String notifId = bundle.getString("notificationId");
+			String extraData = bundle
+					.getString(CustomNotificationBuilder.TEMPLATE);
+			String templateId = null, buttonId = null, action = intent
+					.getAction();
+			try {
+				JSONObject jsonObject = new JSONObject(extraData);
+				templateId = jsonObject.getString(CustomNotificationBuilder.ID);
+				buttonId = bundle
+						.getString("CustomNotificationButtonClickIndex");
+				String templateText = "Notification Id: " + notifId
+						+ "\n\nTemplate Id: " + templateId + "\n\nAction: "
+						+ action + "\n\nButton Id: " + buttonId
+						+ "\n\nExtra Data: " + extraData;
+				json.setText("Template JSON: " + templateText);
+			} catch (JSONException e) {
+				Log.d("JSONException", e.toString());
+			}
+		} else if (bundle.containsKey(PushManager.EXTRA_DATA)) {
+			json.setText(PushManager.EXTRA_DATA + ": "
+					+ bundle.getString(PushManager.EXTRA_DATA));
 			// for the demo purpose we store the data
-			sharedPrefs.edit().putString("data", bundle.getString(PushManager.EXTRA_DATA)).commit();
+			sharedPrefs
+					.edit()
+					.putString("data", bundle.getString(PushManager.EXTRA_DATA))
+					.commit();
 		} else {
 			for (String key : bundle.keySet()) {
 				try {
 					// a way to check a valid json
-					JSONObject jsonObject = new JSONObject(bundle.get(key).toString());
+					JSONObject jsonObject = new JSONObject(bundle.get(key)
+							.toString());
 					json.setText(key + ": " + bundle.get(key).toString());
 					// for the demo purpose we store the data
-					sharedPrefs.edit().putString("data", key + ": " + bundle.get(key).toString()).commit();
+					sharedPrefs
+							.edit()
+							.putString("data",
+									key + ": " + bundle.get(key).toString())
+							.commit();
 					break;
 				} catch (Exception e) {
 
@@ -78,8 +120,14 @@ public class MainActivity extends Activity implements SendTagResponseListener {
 		if (bundle.containsKey(PushManager.NOTIFICATION_SOUND_KEY)) {
 			sound.setText(bundle.getString(PushManager.NOTIFICATION_SOUND_KEY));
 			// for the demo purpose we store the sound
-			sharedPrefs.edit().putString("sound", bundle.getString(PushManager.NOTIFICATION_SOUND_KEY)).commit();
+			sharedPrefs
+					.edit()
+					.putString(
+							"sound",
+							bundle.getString(PushManager.NOTIFICATION_SOUND_KEY))
+					.commit();
 		}
+
 	}
 
 	private String getTagName() {
@@ -110,10 +158,12 @@ public class MainActivity extends Activity implements SendTagResponseListener {
 			@Override
 			public void onClick(View v) {
 				if (getTagName().length() > 0)
-					PushManager.getInstance(getApplicationContext()).removeTag(MainActivity.this, getTagName());
+					PushManager.getInstance(getApplicationContext()).removeTag(
+							MainActivity.this, getTagName());
 			}
 		});
-		PushManager.getInstance(getApplicationContext()).removeTag(null, "my_int_tag");
+		PushManager.getInstance(getApplicationContext()).removeTag(null,
+				"my_int_tag");
 		sendBoolTag.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -121,28 +171,47 @@ public class MainActivity extends Activity implements SendTagResponseListener {
 				if (getTagName().length() == 0) {
 					return;
 				}
-				(new AlertDialog.Builder(MainActivity.this)).setMessage("Send boolean tag")
-						.setPositiveButton("True", new DialogInterface.OnClickListener() {
+				(new AlertDialog.Builder(MainActivity.this))
+						.setMessage("Send boolean tag")
+						.setPositiveButton("True",
+								new DialogInterface.OnClickListener() {
 
-							@Override
-							public void onClick(DialogInterface dialog, int which) {
-								dialog.dismiss();
-								PushManager.getInstance(getApplicationContext()).sendTag(MainActivity.this, new Tag(getTagName(), true));
-							}
-						}).setNeutralButton("False", new DialogInterface.OnClickListener() {
+									@Override
+									public void onClick(DialogInterface dialog,
+											int which) {
+										dialog.dismiss();
+										PushManager.getInstance(
+												getApplicationContext())
+												.sendTag(
+														MainActivity.this,
+														new Tag(getTagName(),
+																true));
+									}
+								})
+						.setNeutralButton("False",
+								new DialogInterface.OnClickListener() {
 
-							@Override
-							public void onClick(DialogInterface dialog, int which) {
-								dialog.dismiss();
-								PushManager.getInstance(getApplicationContext()).sendTag(MainActivity.this, new Tag(getTagName(), false));
-							}
-						}).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+									@Override
+									public void onClick(DialogInterface dialog,
+											int which) {
+										dialog.dismiss();
+										PushManager.getInstance(
+												getApplicationContext())
+												.sendTag(
+														MainActivity.this,
+														new Tag(getTagName(),
+																false));
+									}
+								})
+						.setNegativeButton("Cancel",
+								new DialogInterface.OnClickListener() {
 
-							@Override
-							public void onClick(DialogInterface dialog, int which) {
-								dialog.dismiss();
-							}
-						}).create().show();
+									@Override
+									public void onClick(DialogInterface dialog,
+											int which) {
+										dialog.dismiss();
+									}
+								}).create().show();
 			}
 		});
 		sendDateTag.setOnClickListener(new OnClickListener() {
@@ -154,17 +223,25 @@ public class MainActivity extends Activity implements SendTagResponseListener {
 				}
 
 				Calendar c = Calendar.getInstance();
-				datePicker = new DatePickerDialog(MainActivity.this, new OnDateSetListener() {
+				datePicker = new DatePickerDialog(MainActivity.this,
+						new OnDateSetListener() {
 
-					@Override
-					public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-						Calendar c = Calendar.getInstance();
-						c.set(Calendar.YEAR, year);
-						c.set(Calendar.MONTH, monthOfYear);
-						c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-						PushManager.getInstance(getApplicationContext()).sendTag(MainActivity.this, new Tag(getTagName(), c.getTime()));
-					}
-				}, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH));
+							@Override
+							public void onDateSet(DatePicker view, int year,
+									int monthOfYear, int dayOfMonth) {
+								Calendar c = Calendar.getInstance();
+								c.set(Calendar.YEAR, year);
+								c.set(Calendar.MONTH, monthOfYear);
+								c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+								PushManager
+										.getInstance(getApplicationContext())
+										.sendTag(
+												MainActivity.this,
+												new Tag(getTagName(), c
+														.getTime()));
+							}
+						}, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c
+								.get(Calendar.DAY_OF_MONTH));
 				datePicker.show();
 			}
 		});
@@ -175,13 +252,18 @@ public class MainActivity extends Activity implements SendTagResponseListener {
 
 			@Override
 			public void onClick(View v) {
-				if (getTagName() != null && getTagName().length() > 0 && intTag.getText().toString().trim().length() > 0) {
-					PushManager.getInstance(getBaseContext()).sendTag(MainActivity.this,
-							new Tag(getTagName(), Integer.parseInt(intTag.getText().toString().trim())));
+				if (getTagName() != null && getTagName().length() > 0
+						&& intTag.getText().toString().trim().length() > 0) {
+					PushManager.getInstance(getBaseContext()).sendTag(
+							MainActivity.this,
+							new Tag(getTagName(), Integer.parseInt(intTag
+									.getText().toString().trim())));
 					intTag.setText("");
 
-					PushManager.getInstance(getApplicationContext()).sendTag(null, new Tag("my_int_tag_name", 12),
-							new Tag("another_tag_name", "stringvalue"), new Tag("my_boolean_tag_name", true),
+					PushManager.getInstance(getApplicationContext()).sendTag(
+							null, new Tag("my_int_tag_name", 12),
+							new Tag("another_tag_name", "stringvalue"),
+							new Tag("my_boolean_tag_name", true),
 							new Tag("my_date_tag_name", new Date()));
 				}
 			}
@@ -202,7 +284,7 @@ public class MainActivity extends Activity implements SendTagResponseListener {
 		if (bundle != null) {
 
 			// for the demo purpose only, we clear the previous message data
-			handleMessage(bundle);
+			handleMessage(this.getIntent());
 			// for demo purposes we display the previous message which was
 			// stored previously.
 		} else {
@@ -232,9 +314,12 @@ public class MainActivity extends Activity implements SendTagResponseListener {
 
 			@Override
 			public void onClick(View v) {
-				if (getTagName() != null && getTagName().length() > 0 && actionText.getText().toString().trim().length() > 0) {
-					PushManager.getInstance(getBaseContext()).sendTag(MainActivity.this,
-							new Tag(getTagName(), actionText.getText().toString().trim()));
+				if (getTagName() != null && getTagName().length() > 0
+						&& actionText.getText().toString().trim().length() > 0) {
+					PushManager.getInstance(getBaseContext()).sendTag(
+							MainActivity.this,
+							new Tag(getTagName(), actionText.getText()
+									.toString().trim()));
 					actionText.setText("");
 				}
 			}
@@ -243,18 +328,18 @@ public class MainActivity extends Activity implements SendTagResponseListener {
 
 	// for demo purpose we clear the previous stored data
 	private void clear() {
-		sharedPrefs.edit().putBoolean("has_notification", false).putString("message", "").putString("title", "").putString("sound", "")
-				.putString("data", "").commit();
-		
+		sharedPrefs.edit().putBoolean("has_notification", false)
+				.putString("message", "").putString("title", "")
+				.putString("sound", "").putString("data", "").commit();
+
 	}
 
 	@Override
 	public void onNewIntent(Intent intent) {
 		super.onNewIntent(intent);
 		Log.d("MainActivity", "onNewIntent");
-		Bundle bundle = intent.getExtras();
-		if (bundle != null) {
-			handleMessage(bundle);
+		if (intent.getExtras() != null) {
+			handleMessage(intent);
 		}
 	}
 
@@ -267,7 +352,8 @@ public class MainActivity extends Activity implements SendTagResponseListener {
 
 				@Override
 				public void run() {
-					Toast.makeText(getBaseContext(), "success", Toast.LENGTH_LONG).show();
+					Toast.makeText(getBaseContext(), "success",
+							Toast.LENGTH_LONG).show();
 				}
 			});
 		} else {
@@ -275,7 +361,8 @@ public class MainActivity extends Activity implements SendTagResponseListener {
 
 				@Override
 				public void run() {
-					Toast.makeText(getBaseContext(), message, Toast.LENGTH_LONG).show();
+					Toast.makeText(getBaseContext(), message, Toast.LENGTH_LONG)
+							.show();
 				}
 			});
 			// handle failure

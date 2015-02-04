@@ -7,33 +7,50 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
-import com.example.pushappsdemo.dev.R;
-import com.groboot.pushapps.DeviceIDTypes;
 import com.groboot.pushapps.PushAppsMessageInterface;
 import com.groboot.pushapps.PushAppsNotification;
 import com.groboot.pushapps.PushAppsRegistrationInterface;
 import com.groboot.pushapps.PushManager;
 
 public class DemoApplication extends Application {
-	public static final String GOOGLE_API_PROJECT_NUMBER = "google project number"; // your sender id (google API project number )
-	public static final String PUSHAPPS_APP_TOKEN = "app token here"; // your app token from PushApps Admin Console
-	
+	public static final String GOOGLE_API_PROJECT_NUMBER = "47811378595"; // your
+																		// sender
+																		// id
+																		// (google
+																		// API
+																		// project
+																		// id)
+	public static final String PUSHAPPS_APP_TOKEN = "1a3267ab-aa11-4bb2-8dda-034b3a6566ee"; // your
+																							// application
+																							// token
+																							// from
+																							// PushApps
+
+	// public static final String PUSHAPPS_APP_TOKEN =
+	// "82a12c6a-e179-4e9d-a089-a1674fd7baef";
 	@Override
 	public void onCreate() {
 		super.onCreate();
+		// first we initialize the push manager, you can also initialize the
+		// PushManager in your main activity.
+		PushManager.init(getBaseContext(), GOOGLE_API_PROJECT_NUMBER, PUSHAPPS_APP_TOKEN);
+		PushManager.getInstance(getApplicationContext()).setShouldStartIntentAsNewTask(false);
+		// these methods are both optional and used for the notification
+		// customization
+		PushManager.getInstance(getApplicationContext()).setNotificationIcon(R.drawable.notification_icon);
 
-		PushManager.getInstance(getApplicationContext()).setDeviceIDType(DeviceIDTypes.ANDROID_ID);
-		// optional - register for message events. the default notification will be fired if you don't register for this event
+		PushManager.getInstance(getApplicationContext()).setShouldStackNotifications(true);
+
+		// optional - register for message events
+
 		PushManager.getInstance(getApplicationContext()).registerForMessagesEvents(new PushAppsMessageInterface() {
 
 			@Override
 			public void onMessage(Context ctx, Intent intent) {
 				PushManager.buildNotification(intent.getExtras(), ctx, (new Random()).nextInt(290) + 1);
-				//here is an example for creating custom notifications
-			//	PushAppsNotification notification = new PushAppsNotification();
-			//	notification.setMessage("message").setTitle("title").setIcon(R.drawable.ic_launcher).setHasVibrate(true);
-			//  notification.setVibrationPattern(new long[] {0 ,250,100,250});
-			//  PushManager.buildNotification(intent.getExtras(), ctx, notification, 56);
+				PushAppsNotification notification = new PushAppsNotification();
+			//	notification.setMessage("blah").setTitle("mmm").setIcon(R.drawable.ic_launcher);
+				//PushManager.buildNotification(intent.getExtras(), ctx, notification, 56);
 			}
 		});
 
@@ -56,26 +73,6 @@ public class DemoApplication extends Application {
 				Log.d("PushAppsDemo", "PUSHAPPS ERROR: " + errorMessage);
 			}
 		});
-		
-		//some extra configuration ( optional ) :
-
-		//default is false
-		PushManager.getInstance(getApplicationContext()).setShouldStartIntentAsNewTask(false);
-		
-		//default will be the application icon 
-		PushManager.getInstance(getApplicationContext()).setNotificationIcon(R.drawable.notification_icon);
-
-		//default will be false ( If you decide to set setShouldStackNotifications to true then make sure you override the onNewIntent(Intent intent) method in your activity to handle the notification click)
-		PushManager.getInstance(getApplicationContext()).setShouldStackNotifications(false);
-		
-		//default is true
-		PushManager.getInstance(getApplicationContext()).setVibrationEnabled(true);
-		//example to a vibration pattern
-		PushManager.getInstance(getApplicationContext()).setVibrationPattern(new long[] {0,300,200,300});
-		
-		// initialize the push manager, you can also initialize the
-		// PushManager in your main activity.
-		PushManager.init(getBaseContext(), GOOGLE_API_PROJECT_NUMBER, PUSHAPPS_APP_TOKEN);
 	}
 
 }
