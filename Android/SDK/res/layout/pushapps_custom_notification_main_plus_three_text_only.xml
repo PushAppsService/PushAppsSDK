@@ -7,34 +7,40 @@
 
     <RelativeLayout
         android:id="@+id/pushapps_notification_upper_layout"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content" >
 
         <ImageView
             android:id="@+id/pushapps_notification_icon"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:layout_centerVertical="true"
             android:paddingLeft="5dp"
-            android:paddingTop="5dp"
-            android:scaleType="fitXY" />
+            android:scaleType="center" />
 
         <TextView
             android:id="@+id/pushapps_notification_title"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
+            android:layout_marginRight="5dp"
             android:layout_toRightOf="@+id/pushapps_notification_icon"
+            android:ellipsize="end"
+            android:maxLines="1"
             android:textColor="@android:color/white"
             android:textSize="16dp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/pushapps_notification_subtitle"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/pushapps_notification_title"
             android:layout_marginLeft="8dp"
+            android:layout_marginRight="5dp"
             android:layout_toRightOf="@+id/pushapps_notification_icon"
+            android:ellipsize="end"
+            android:maxLines="2"
             android:textColor="@android:color/darker_gray"
             android:textSize="14dp" />
     </RelativeLayout>
@@ -77,6 +83,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/pushapps_notification_bottom_one_title"
                 android:layout_marginLeft="5dp"
+                android:ellipsize="end"
+                android:maxLines="2"
                 android:paddingBottom="12dp"
                 android:textColor="@android:color/darker_gray"
                 android:textSize="10dp"
@@ -85,12 +93,11 @@
             <ImageView
                 android:layout_width="1dp"
                 android:layout_height="fill_parent"
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="2dp"
                 android:layout_alignParentRight="true"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginTop="5dp"
                 android:background="@android:color/darker_gray" />
-            
         </RelativeLayout>
 
         <RelativeLayout
@@ -115,22 +122,24 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/pushapps_notification_bottom_two_title"
                 android:layout_marginLeft="5dp"
+                android:ellipsize="end"
+                android:maxLines="2"
                 android:paddingBottom="12dp"
                 android:textColor="@android:color/darker_gray"
                 android:textSize="10dp"
                 android:textStyle="bold" />
-            
+
             <ImageView
                 android:layout_width="1dp"
                 android:layout_height="fill_parent"
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="2dp"
                 android:layout_alignParentRight="true"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginTop="5dp"
                 android:background="@android:color/darker_gray" />
         </RelativeLayout>
 
-       <RelativeLayout
+        <RelativeLayout
             android:id="@+id/pushapps_notification_bottom_layout_third_layout"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
@@ -152,12 +161,12 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/notification_bottom_three_title"
                 android:layout_marginLeft="5dp"
+                android:ellipsize="end"
+                android:maxLines="2"
                 android:paddingBottom="12dp"
                 android:textColor="@android:color/darker_gray"
                 android:textSize="10dp"
                 android:textStyle="bold" />
-            
-
         </RelativeLayout>
     </LinearLayout>
 
