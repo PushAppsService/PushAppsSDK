@@ -159,7 +159,7 @@
                 android:id="@+id/pushapps_notification_bottom_three_subtitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/notification_bottom_three_title"
+                android:layout_below="@+id/pushapps_notification_bottom_three_title"
                 android:layout_marginLeft="5dp"
                 android:ellipsize="end"
                 android:maxLines="2"
